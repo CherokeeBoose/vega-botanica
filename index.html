@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ritual by Vega Botanica</title>
+<meta name="description" content="Ritual, a jasmine-forward white floral eau de parfum. Hand-filled in small batches by Vega Botanica.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Ritual — Vega Botanica">
+<meta property="og:description" content="A white floral, worn after dark. Hand-filled in small batches.">
+<meta property="og:image" content="assets/ritual-jasmine.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B0A08">
+<link rel="icon" href="assets/mark-gold.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+
+<style>
+/* ── Vega Botanica · Ritual ────────────────────────────────────────────────
+   Deliberately single-theme. This is a black-and-gold perfume house; the page
+   commits to that world in every viewer theme. Every colour is painted
+   explicitly so the page never borrows the host ground.
+   ------------------------------------------------------------------------ */
+:root{
+  --ink:      #0B0A08;   /* warm near-black, biased toward the gold */
+  --ink-2:    #121010;
+  --ink-3:    #1B1714;
+  --gold:     #C49A4A;
+  --gold-hi:  #E6CE9A;
+  --gold-lo:  #6E5528;
+  --cream:    #EDE7DC;
+  --muted:    #999083;
+
+  --display: "Bodoni Moda", "Didot", "Bodoni MT", Georgia, serif;
+  --body: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+
+  --measure: 34rem;
+  --gutter: clamp(1.5rem, 6vw, 5rem);
+  --section-gap: clamp(5.5rem, 13vw, 10rem);
+
+  color-scheme: dark;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--body);
+  font-weight:300;
+  font-size:clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+
+::selection{ background:var(--gold); color:var(--ink); }
+
+a{ color:var(--gold-hi); text-underline-offset:.28em; text-decoration-thickness:1px; }
+a:hover{ color:var(--cream); }
+
+:where(a,button,input,summary):focus-visible{
+  outline:1px solid var(--gold-hi);
+  outline-offset:3px;
+}
+
+img,video{ display:block; max-width:100%; height:auto; }
+
+/* ── shared type ─────────────────────────────────────────────────────────── */
+.label{
+  font-family:var(--body);
+  font-weight:500;
+  font-size:.6875rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0;
+}
+
+.lede{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(1.5rem, 1.15rem + 1.6vw, 2.125rem);
+  line-height:1.3;
+  letter-spacing:.005em;
+  text-wrap:balance;
+  margin:0;
+}
+
+p{ margin:0; }
+
+.prose{ display:flex; flex-direction:column; gap:1.35em; max-width:var(--measure); }
+.prose p{ color:#DBD4C8; }
+
+.rule{
+  height:1px; border:0; margin:0;
+  background:linear-gradient(90deg, var(--gold) 0%, var(--gold-lo) 60%, transparent 100%);
+}
+
+/* ── shell ───────────────────────────────────────────────────────────────── */
+.wrap{
+  max-width:64rem;
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+section{ position:relative; }
+
+/* The spine: a single gold hairline running the length of the page body,
+   like the rule printed down the edge of a label. */
+.body-flow{ position:relative; }
+.body-flow::before{
+  content:"";
+  position:absolute;
+  left:calc(var(--gutter) - 1px);
+  top:0; bottom:0;
+  width:1px;
+  background:linear-gradient(180deg, transparent 0%, var(--gold-lo) 6%, var(--gold-lo) 88%, transparent 100%);
+  opacity:.65;
+  pointer-events:none;
+}
+@media (min-width:64rem){
+  .body-flow::before{ left:calc(50% - 32rem + var(--gutter) - 1px); }
+}
+
+.block{
+  padding-block:var(--section-gap);
+}
+.block__inner{ display:flex; flex-direction:column; gap:2rem; align-items:flex-start; }
+
+/* section labels sit just off the spine */
+.block__inner > .label{ position:relative; padding-left:1.75rem; }
+.block__inner > .label::before{
+  content:"";
+  position:absolute; left:0; top:.62em;
+  width:1.05rem; height:1px; background:var(--gold);
+}
+
+/* ── hero ────────────────────────────────────────────────────────────────── */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-rows:1fr auto 1fr;
+  align-items:center;
+  justify-items:center;
+  text-align:center;
+  padding:clamp(2rem,6vh,4rem) var(--gutter);
+  gap:1rem;
+}
+.hero__mark{
+  align-self:end;
+  width:clamp(58px, 11vw, 92px);
+  opacity:.92;
+}
+.hero__center{ display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+
+.hero__house{
+  font-family:var(--body); font-weight:400;
+  font-size:.6875rem; letter-spacing:.42em; text-transform:uppercase;
+  color:var(--muted); margin:0; padding-left:.42em;
+}
+
+.hero__name{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(3.25rem, 1.6rem + 11vw, 8.5rem);
+  line-height:.95;
+  letter-spacing:.16em;
+  text-indent:.16em;   /* optical centring against the tracking */
+  margin:0;
+  color:var(--cream);
+}
+
+.hero__rule{
+  width:min(15rem, 46vw); height:1px; border:0; margin:0;
+  background:linear-gradient(90deg, transparent, var(--gold) 22%, var(--gold) 78%, transparent);
+}
+
+.hero__sub{
+  font-family:var(--display); font-style:italic; font-weight:400;
+  font-size:clamp(1.0625rem, .95rem + .55vw, 1.375rem);
+  color:var(--gold-hi); margin:0;
+}
+.hero__kind{
+  font-family:var(--body); font-weight:400;
+  font-size:.6875rem; letter-spacing:.34em; text-transform:uppercase;
+  color:var(--muted); margin:0; padding-left:.34em;
+}
+
+.hero__cue{
+  align-self:end;
+  display:inline-flex; flex-direction:column; align-items:center; gap:.75rem;
+  font-family:var(--body); font-weight:400;
+  font-size:.625rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--muted); text-decoration:none;
+}
+.hero__cue:hover{ color:var(--gold-hi); }
+.hero__cue span{ display:block; width:1px; height:2.75rem; background:linear-gradient(180deg,var(--gold-lo),transparent); }
+
+/* hero load sequence */
+@media (prefers-reduced-motion: no-preference){
+  .hero__mark,.hero__house,.hero__rule,.hero__sub,.hero__kind,.hero__cue{ opacity:0; animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
+  .hero__mark { animation-delay:.15s; }
+  .hero__house{ animation-delay:.35s; }
+  .hero__name { opacity:0; animation:settle 1.5s cubic-bezier(.19,1,.22,1) .5s forwards; }
+  .hero__rule { animation-delay:1.25s; }
+  .hero__sub  { animation-delay:1.45s; }
+  .hero__kind { animation-delay:1.6s; }
+  .hero__cue  { animation-delay:2s; }
+}
+@keyframes rise{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none;} }
+@keyframes settle{ from{ opacity:0; letter-spacing:.5em; } to{ opacity:1; letter-spacing:.16em; } }
+
+/* ── the scent ───────────────────────────────────────────────────────────── */
+.scent{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:start; }
+@media (min-width:52rem){
+  .scent{ grid-template-columns:minmax(0,1fr) minmax(0,22rem); }
+}
+.scent__figure{ margin:0; }
+.scent__figure img{ width:100%; border:1px solid rgba(196,154,74,.22); }
+.scent__figure figcaption{
+  margin-top:.9rem;
+  font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+}
+
+.materials{
+  margin:0; padding:0; list-style:none;
+  display:flex; flex-wrap:wrap; gap:.5rem 1.5rem;
+  font-family:var(--display); font-style:italic;
+  font-size:1.0625rem; color:var(--gold-hi);
+}
+.materials li + li{ position:relative; padding-left:1.5rem; }
+.materials li + li::before{
+  content:""; position:absolute; left:0; top:.72em;
+  width:.4rem; height:1px; background:var(--gold-lo);
+}
+
+/* ── the 3 a.m. panel ────────────────────────────────────────────────────── */
+.panel{
+  background:var(--ink-2);
+  border-block:1px solid rgba(196,154,74,.16);
+  padding-block:clamp(4.5rem,11vw,8rem);
+}
+.panel__grid{ display:grid; gap:clamp(2.5rem,5vw,4rem); }
+@media (min-width:56rem){ .panel__grid{ grid-template-columns:1fr 1fr; align-items:start; } }
+
+.figures{ display:flex; flex-direction:column; gap:2.75rem; }
+.figure{ display:flex; flex-direction:column; gap:.4rem; }
+.figure__num{
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(2.75rem, 1.4rem + 5.4vw, 4.75rem);
+  line-height:.9; letter-spacing:-.01em;
+  color:var(--gold);
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.figure__num small{ font-size:.36em; letter-spacing:.06em; color:var(--gold-hi); }
+.figure__cap{
+  font-size:.9375rem; color:#C7BFB2; max-width:22rem;
+}
+
+/* ── made by hand ────────────────────────────────────────────────────────── */
+.craft{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center; }
+@media (min-width:52rem){ .craft{ grid-template-columns:minmax(0,17rem) 1fr; } }
+
+.film{
+  position:relative; margin:0;
+  max-width:17rem; width:100%;
+  border:1px solid rgba(196,154,74,.25);
+  background:var(--ink-2);
+}
+.film video{ width:100%; }
+.film figcaption{
+  padding:.7rem .9rem;
+  border-top:1px solid rgba(196,154,74,.16);
+  font-size:.625rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+}
+
+.marks{ margin:0; padding:0; display:grid; gap:1.5rem; }
+.marks div{ display:flex; flex-direction:column; gap:.3rem; }
+.marks dt{
+  font-family:var(--body); font-weight:500;
+  font-size:.6875rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
+}
+.marks dd{ margin:0; color:#DBD4C8; max-width:30rem; }
+
+/* ── pour list ───────────────────────────────────────────────────────────── */
+.pour{
+  position:relative; isolation:isolate;
+  padding-block:clamp(5rem,12vw,9rem);
+  border-block:1px solid rgba(196,154,74,.16);
+}
+.pour__bg{
+  position:absolute; inset:0; z-index:-2;
+  background:#0B0A08 url("assets/ritual-mirror.webp") center 28% / cover no-repeat;
+}
+.pour__veil{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(90deg, rgba(11,10,8,.98) 0%, rgba(11,10,8,.93) 46%, rgba(11,10,8,.68) 100%),
+    linear-gradient(180deg, rgba(11,10,8,.55) 0%, transparent 30%, transparent 72%, rgba(11,10,8,.6) 100%);
+}
+.pour__inner{ display:flex; flex-direction:column; gap:1.75rem; max-width:32rem; }
+
+form{ display:flex; flex-direction:column; gap:1rem; width:100%; max-width:26rem; }
+.field{ display:flex; flex-direction:column; gap:.45rem; }
+.field label{
+  font-size:.625rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
+}
+.field input{
+  width:100%;
+  font-family:var(--body); font-weight:300; font-size:1rem; color:var(--cream);
+  background:rgba(0,0,0,.5);
+  border:0; border-bottom:1px solid var(--gold-lo);
+  padding:.65rem .1rem;
+  transition:border-color .25s ease;
+}
+.field input::placeholder{ color:#6A6359; }
+.field input:hover{ border-bottom-color:var(--gold); }
+.field input:focus{ outline:0; border-bottom-color:var(--gold-hi); }
+
+button{
+  align-self:flex-start;
+  margin-top:.5rem;
+  font-family:var(--body); font-weight:500;
+  font-size:.6875rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold-hi);
+  background:transparent;
+  border:1px solid var(--gold-lo);
+  padding:1rem 2.5rem 1rem 2.82rem;
+  cursor:pointer;
+  transition:background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+button:hover{ background:var(--gold); border-color:var(--gold); color:var(--ink); }
+button[disabled]{ opacity:.55; cursor:default; }
+.form-note{ font-size:.8125rem; min-height:1.2em; margin:0; }
+.form-note.err{ color:#D9A05B; }
+.pour__done{
+  display:none; flex-direction:column; gap:.9rem; max-width:26rem;
+  border-left:1px solid var(--gold); padding-left:1.25rem;
+}
+.pour__done .lede{ font-size:clamp(1.25rem,1.05rem+.9vw,1.625rem); color:var(--gold-hi); }
+form.is-done{ display:none; }
+form.is-done + .fineprint{ display:none; }
+.pour__done.is-visible{ display:flex; }
+
+.fineprint{ font-size:.8125rem; color:var(--muted); max-width:24rem; }
+
+/* ── first pour ──────────────────────────────────────────────────────────── */
+.pour-date{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center; }
+@media (min-width:52rem){ .pour-date{ grid-template-columns:1fr minmax(0,16rem); } }
+.pour-date figure{ margin:0; }
+.pour-date img{ width:100%; border:1px solid rgba(196,154,74,.22); }
+
+.datestamp{
+  font-family:var(--display);
+  font-size:clamp(1.75rem,1.2rem + 2.4vw, 2.75rem);
+  line-height:1.15; color:var(--cream); margin:0;
+  font-variant-numeric:lining-nums;
+}
+
+/* ── venue list ──────────────────────────────────────────────────────────── */
+.venue{ margin:0; padding:0; display:grid; gap:1.1rem; }
+.venue div{ display:grid; grid-template-columns:6.5rem 1fr; gap:1rem; align-items:baseline; }
+.venue dt{
+  font-family:var(--body); font-weight:500;
+  font-size:.625rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold);
+}
+.venue dd{ margin:0; color:#DBD4C8; font-size:.9375rem; line-height:1.6; }
+@media (max-width:32rem){
+  .venue div{ grid-template-columns:1fr; gap:.3rem; }
+}
+
+/* ── founder ─────────────────────────────────────────────────────────────── */
+.founder{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center; }
+@media (min-width:52rem){ .founder{ grid-template-columns:minmax(0,19rem) 1fr; } }
+.founder__figure{ margin:0; }
+.founder__figure img{ width:100%; border:1px solid rgba(196,154,74,.22); }
+.signature{
+  font-family:var(--display); font-style:italic;
+  font-size:1.0625rem; color:var(--gold-hi); margin-top:.4rem;
+}
+
+/* ── contact ─────────────────────────────────────────────────────────────── */
+.contact{
+  position:relative; isolation:isolate;
+  padding-block:clamp(4.5rem,11vw,8rem);
+  border-block:1px solid rgba(196,154,74,.16);
+}
+.contact__bg{
+  position:absolute; inset:0; z-index:-2;
+  background:#0B0A08 url("assets/ritual-telephone.webp") center 42% / cover no-repeat;
+}
+.contact__veil{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(90deg, rgba(11,10,8,.96) 0%, rgba(11,10,8,.86) 52%, rgba(11,10,8,.62) 100%),
+    linear-gradient(180deg, rgba(11,10,8,.7) 0%, transparent 34%, transparent 66%, rgba(11,10,8,.75) 100%);
+}
+.contact__inner{ display:flex; flex-direction:column; gap:1.25rem; max-width:30rem; }
+.contact__link{
+  font-family:var(--display);
+  font-size:clamp(1.25rem,1rem + 1.1vw,1.75rem);
+}
+.contact__link a{ color:var(--gold-hi); text-decoration:none; border-bottom:1px solid var(--gold-lo); padding-bottom:.15em; }
+.contact__link a:hover{ color:var(--cream); border-bottom-color:var(--gold); }
+
+/* ── footer ──────────────────────────────────────────────────────────────── */
+footer{
+  border-top:1px solid rgba(196,154,74,.16);
+  padding-block:clamp(3rem,7vw,5rem);
+  background:var(--ink-2);
+}
+.foot{ display:flex; flex-wrap:wrap; gap:2.5rem; align-items:flex-start; justify-content:space-between; }
+.foot__mark{ width:132px; opacity:.85; }
+.foot__links{ display:flex; flex-direction:column; gap:.6rem; }
+.foot__links a{
+  font-size:.6875rem; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--muted); text-decoration:none;
+}
+.foot__links a:hover{ color:var(--gold-hi); }
+.foot__legal{ font-size:.75rem; color:#6A6359; max-width:22rem; }
+
+/* ── scroll reveal ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1); }
+  .reveal.is-in{ opacity:1; transform:none; }
+}
+</style>
+
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero__mark" src="assets/mark-gold.png" alt="Vega Botanica" width="813" height="718">
+
+  <div class="hero__center">
+    <p class="hero__house">Vega Botanica</p>
+    <h1 class="hero__name">RITUAL</h1>
+    <hr class="hero__rule">
+    <p class="hero__sub">A white floral, worn after dark.</p>
+    <p class="hero__kind">Eau de Parfum &middot; Hand-filled</p>
+  </div>
+
+  <a class="hero__cue" href="#scent"><span></span>The scent</a>
+</header>
+
+<main class="body-flow">
+
+  <!-- ── the scent ── -->
+  <section class="block" id="scent">
+    <div class="wrap">
+      <div class="block__inner reveal">
+        <p class="label">The scent</p>
+
+        <div class="scent">
+          <div class="prose">
+            <p class="lede">It opens the way a garden smells in the minute after the heat leaves it. Cool, green, still deciding.</p>
+            <p>Then the jasmine arrives, and it is not the soap-and-linen kind. It is the real kind: heavy, honeyed, a little indolic, the note that made perfumers say jasmine is the one flower that smells human.</p>
+            <p>It stays there a long while. Tuberose gives it weight. Orange blossom keeps it from going airless. Underneath, a warm wood holds the whole thing against the skin.</p>
+            <p>By the fourth hour it has stopped behaving like a fragrance and started behaving like a temperature.</p>
+
+            <ul class="materials" aria-label="Key materials">
+              <li>Jasmine</li>
+              <li>Tuberose</li>
+              <li>Orange blossom</li>
+              <li>A warm wood base</li>
+            </ul>
+          </div>
+
+          <figure class="scent__figure">
+            <img src="assets/ritual-jasmine.webp" alt="Ritual eau de parfum, a black bottle with a gold cap, lying among jasmine and tuberose blossoms" width="1100" height="1100" loading="lazy">
+            <figcaption>Ritual &middot; 30 mL</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── three in the morning ── -->
+  <section class="panel">
+    <div class="wrap">
+      <div class="block__inner reveal">
+        <p class="label">Why the batches are small</p>
+
+        <div class="panel__grid">
+          <div class="prose">
+            <p class="lede">Jasmine will not be hurried, and it will not be scaled.</p>
+            <p>The flower opens after sunset and is picked in the dark, by hand, because by sunrise most of what you wanted from it has already left. Everything about the material argues for small quantities and short runs.</p>
+            <p>Ritual is made the same way. One batch at a time, filled by hand, and when it is gone it is gone until the next pour.</p>
+          </div>
+
+          <div class="figures">
+            <div class="figure">
+              <p class="figure__num">3<small>&nbsp;A.M.</small></p>
+              <p class="figure__cap">When picking begins. The flowers are gathered before first light and taken in within hours.</p>
+            </div>
+            <div class="figure">
+              <p class="figure__num">1000<small>&nbsp;KG</small></p>
+              <p class="figure__cap">Roughly the weight of fresh blossom behind a single kilogram of jasmine absolute.</p>
+            </div>
+            <div class="figure">
+              <p class="figure__num">300<small>&nbsp;+</small></p>
+              <p class="figure__cap">Individual aromatic compounds in that one material. No synthetic reproduces all of them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── made by hand ── -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block__inner reveal">
+        <p class="label">Made by hand</p>
+
+        <div class="craft">
+          <figure class="film">
+            <video src="assets/ritual-film.mp4" poster="assets/ritual-film-poster.jpg"
+                   autoplay muted loop playsinline preload="metadata"
+                   aria-label="Ritual eau de parfum, worn by candlelight"></video>
+            <figcaption>Ritual &middot; Film</figcaption>
+          </figure>
+
+          <dl class="marks">
+            <div>
+              <dt>Small batch</dt>
+              <dd>Each batch is mixed, rested and filtered before it is bottled. The size of the batch is set by the materials, not by demand.</dd>
+            </div>
+            <div>
+              <dt>Hand-filled &amp; numbered</dt>
+              <dd>Every bottle is filled and numbered by hand. Your number tells you which pour it came from.</dd>
+            </div>
+            <div>
+              <dt>Engraved to order</dt>
+              <dd>The 100 mL bottle can be engraved. Pour List members are offered engraving first, before a batch opens.</dd>
+            </div>
+            <div>
+              <dt>Formulated to safety limits</dt>
+              <dd>Ritual is composed within international fragrance safety guidelines for skin application.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── the pour list ── -->
+  <section class="pour" id="pour-list">
+    <div class="pour__bg" aria-hidden="true"></div>
+    <div class="pour__veil" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="pour__inner reveal">
+        <p class="label">The Pour List</p>
+        <p class="lede">Batches are announced here first, and nowhere else.</p>
+        <p class="fineprint" style="max-width:30rem;">Pour List members get the batch size, the pour date, and first claim on engraving before a batch is opened to anyone else. Most batches do not last past the list.</p>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             MAILERLITE: replace ACCOUNT_ID and FORM_ID in the action below
+             with the two numbers from your MailerLite embed code.
+             Until you do, this form will not collect anything.
+             ══════════════════════════════════════════════════════════════ -->
+        <form action="https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe" method="post">
+          <div class="field">
+            <label for="pl-name">First name</label>
+            <input id="pl-name" type="text" name="fields[name]" autocomplete="given-name" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label for="pl-email">Email address</label>
+            <input id="pl-email" type="email" name="fields[email]" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <button type="submit">Join the list</button>
+          <p class="form-note" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="pour__done" role="status">
+          <p class="lede">You are on the list.</p>
+          <p class="fineprint" style="display:block">The next notice you receive from us will be the pour. Until then, silence — that is the arrangement.</p>
+        </div>
+
+        <p class="fineprint">One notice per pour. No other mail. Leave whenever you like.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── first pour ── -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block__inner reveal">
+        <p class="label">The first pour</p>
+
+        <div class="pour-date">
+          <div class="prose">
+            <p class="datestamp">Batch 001<br>Sunday, 30 August &middot; 11–3</p>
+            <dl class="venue">
+              <div><dt>Where</dt><dd>Higher Vibes Market at Flying Buddha Studio<br>814 West Diamond Ave, Suite 100<br>Gaithersburg, MD 20878</dd></div>
+              <div><dt>Admission</dt><dd>Free. Part wellness festival, part local market.</dd></div>
+              <div><dt>Sizes</dt><dd>3 mL &middot; 10 mL &middot; 30 mL &middot; 100 mL engraved to order</dd></div>
+            </dl>
+            <p>Batch 001 is being sold in person only. Nothing ships until Batch 002.</p>
+            <p>If you cannot be there, <a href="#pour-list">join the Pour List</a> and you will hear about the next one before it is poured.</p>
+          </div>
+
+          <figure>
+            <img src="assets/ritual-carry.webp" alt="A bottle of Ritual carried in an evening bag" width="900" height="1350" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── the founder ── -->
+  <section class="block" id="founder">
+    <div class="wrap">
+      <div class="block__inner reveal">
+        <p class="label">The founder</p>
+
+        <div class="founder">
+          <figure class="founder__figure">
+            <img src="assets/founder.webp" alt="Cher, founder of Vega Botanica, beneath a tree in full white blossom" width="900" height="1200" loading="lazy">
+          </figure>
+
+          <div class="prose">
+            <p class="lede">I have taught for most of my working life. More recently, yoga.</p>
+            <p>I meditate in my garden most mornings. Sitting outdoors long enough that you stop looking at a flower and start smelling it turns out to be a good way to learn what one actually does over the course of an hour. Ritual began there.</p>
+            <p>I am also an aerialist, which is how I know Sarah, who owns Flying Buddha Studio. Batch 001 has a launch because she told me to bring it to her market this month instead of waiting until everything was perfect. She was right.</p>
+            <p>I formulate, mix, rest, filter, bottle and number every batch myself. That sets a natural ceiling on how much there can be, and that is the point. I would rather run out than pour something I would not wear.</p>
+            <p>Ritual is my first release. It took a long time to get the jasmine to sit exactly where I wanted it, and I am not in a hurry to add a second scent before this one is right.</p>
+            <p class="signature">Cher &middot; Founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── contact ── -->
+  <section class="contact" id="contact">
+    <div class="contact__bg" aria-hidden="true"></div>
+    <div class="contact__veil" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="contact__inner reveal">
+        <p class="label">Contact</p>
+        <p class="lede">Questions about a batch, an engraving, or stocking Ritual?</p>
+        <p class="contact__link"><a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
+        <p class="fineprint">Or find us on <a href="https://instagram.com/the.house.of.vega">@the.house.of.vega</a>. Replies come from one person, so give it a day.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img class="foot__mark" src="assets/logo-cream.png" alt="Vega Botanica" width="900" height="1082">
+    <nav class="foot__links" aria-label="Elsewhere">
+      <a href="#pour-list">The Pour List</a>
+      <a href="#founder">The Founder</a>
+      <a href="https://instagram.com/the.house.of.vega">@the.house.of.vega</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="foot__legal">Vega Botanica &middot; Ritual Eau de Parfum. Made in small batches in Maryland. External use only. Keep away from heat and open flame.<br><br>&copy; 2026 Vega Botanica.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){ el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin:'0px 0px -12% 0px', threshold:0.08 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var form = document.querySelector('#pour-list form');
+  if(!form) return;
+  var note = form.querySelector('.form-note');
+  var btn  = form.querySelector('button[type=submit]');
+  var done = document.querySelector('.pour__done');
+  var native = false;
+  form.addEventListener('submit', function(e){
+    if(native) return;                      // fallback path: let the browser post
+    e.preventDefault();
+    note.textContent = ''; note.classList.remove('err');
+    btn.disabled = true; btn.textContent = 'One moment';
+    var body = new FormData(form);
+    body.append('ml-submit','1'); body.append('anticsrf','true');
+    fetch(form.action, { method:'POST', body: body })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j && j.success !== false){
+          form.classList.add('is-done');
+          done.classList.add('is-visible');
+        } else { throw new Error('rejected'); }
+      })
+      .catch(function(){
+        // network/CORS trouble: fall back to the normal post so no signup is lost
+        native = true;
+        btn.disabled = false; btn.textContent = 'Join the list';
+        note.textContent = 'One more tap — confirming through our list provider.';
+        form.submit();
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
