@@ -437,7 +437,8 @@ form.is-done + .fineprint{ display:none; }
 }
 .contact__bg{
   position:absolute; inset:0; z-index:-2;
-  background:#0B0A08 url("assets/ritual-telephone.webp") center 42% / cover no-repeat;
+  width:100%; height:100%; object-fit:cover; object-position:center 30%;
+  background:#0B0A08;
 }
 .contact__veil{
   position:absolute; inset:0; z-index:-1;
@@ -681,7 +682,9 @@ footer{
 
   <!-- ── contact ── -->
   <section class="contact" id="contact">
-    <div class="contact__bg" aria-hidden="true"></div>
+    <video class="contact__bg" aria-hidden="true"
+      src="assets/ritual-contact.mp4" poster="assets/ritual-contact-poster.jpg"
+      autoplay muted loop playsinline preload="metadata"></video>
     <div class="contact__veil" aria-hidden="true"></div>
     <div class="wrap">
       <div class="contact__inner reveal">
