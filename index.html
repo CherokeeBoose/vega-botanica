@@ -243,7 +243,7 @@ section{ position:relative; }
   margin:2.5rem 0 0; padding:0;
   font-family:"Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   font-style:normal; font-weight:400;
-  font-size:clamp(1.25rem, 6vw, 2.05rem);
+  font-size:clamp(1.25rem, 7vw, 2.4rem);
   line-height:1.9; color:var(--gold-hi);
   text-align:left;
 }
@@ -254,7 +254,7 @@ section{ position:relative; }
   /* ink starts clipped away to the right; the keyframe sweeps it open.
      insets run negative so swashes and descenders are never shaved. */
   .diary__ink{ clip-path:inset(-.2em 100% -.5em -.12em); }
-  .reveal.is-in .diary__ink{
+  .diary.is-writing .diary__ink{
     animation:write var(--pen) cubic-bezier(.4,0,.5,1) var(--pen-delay) forwards;
   }
   /* the nib: a hairline riding the leading edge, lifting off at the line end */
@@ -263,14 +263,16 @@ section{ position:relative; }
     width:1px; background:var(--gold-hi); opacity:0;
     box-shadow:0 0 6px rgba(230,206,154,.7);
   }
-  .reveal.is-in .diary__line::after{
+  .diary.is-writing .diary__line::after{
     animation:nib var(--pen) cubic-bezier(.4,0,.5,1) var(--pen-delay) forwards;
   }
-  /* ~70ms a character — an unhurried hand; longer rests at the full stops. */
-  .diary__line:nth-child(1){ --pen:1.75s; --pen-delay:.4s; }
-  .diary__line:nth-child(2){ --pen:1.6s;  --pen-delay:2.3s; }
-  .diary__line:nth-child(3){ --pen:2.45s; --pen-delay:4.5s; }
-  .diary__line:nth-child(4){ --pen:2.25s; --pen-delay:7.55s; }
+  /* ~100ms a character — the pen does not start until the reader arrives,
+     and it rests at the full stops. */
+  .diary__line:nth-child(1){ --pen:2.5s; --pen-delay:.5s; }
+  .diary__line:nth-child(2){ --pen:2.3s; --pen-delay:3.2s; }
+  .diary__line:nth-child(3){ --pen:1.6s; --pen-delay:6.2s; }
+  .diary__line:nth-child(4){ --pen:1.8s; --pen-delay:8s; }
+  .diary__line:nth-child(5){ --pen:3.2s; --pen-delay:10.5s; }
 }
 
 @keyframes write{ to{ clip-path:inset(-.2em -.25em -.5em -.12em); } }
@@ -509,7 +511,8 @@ footer{
             <p class="diary">
               <span class="diary__line"><span class="diary__ink">Sun-kissed white florals,</span></span>
               <span class="diary__line"><span class="diary__ink">married with warm wood.</span></span>
-              <span class="diary__line"><span class="diary__ink">Like honeysuckle on a summer fence.</span></span>
+              <span class="diary__line"><span class="diary__ink">Like honeysuckle</span></span>
+              <span class="diary__line"><span class="diary__ink">on a summer fence.</span></span>
               <span class="diary__line"><span class="diary__ink">Sweet, and not easily forgotten.</span></span>
             </p>
           </div>
@@ -718,6 +721,20 @@ footer{
     });
   }, { rootMargin:'0px 0px -12% 0px', threshold:0.08 });
   els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var d = document.querySelector('.diary');
+  if(!d) return;
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    d.classList.add('is-writing'); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ d.classList.add('is-writing'); io.unobserve(d); }
+    });
+  }, { threshold:0.6 });
+  io.observe(d);
 })();
 
 (function(){
