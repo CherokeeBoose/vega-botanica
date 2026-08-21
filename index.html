@@ -378,6 +378,7 @@ button{
 }
 button:hover{ background:var(--gold); border-color:var(--gold); color:var(--ink); }
 button[disabled]{ opacity:.55; cursor:default; }
+.field--hp{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
 .form-note{ font-size:.9375rem; min-height:1.2em; margin:0; }
 .form-note.err{ color:#D9A05B; }
 .pour__done{
@@ -604,6 +605,10 @@ footer{
             <label for="pl-name">First name</label>
             <input id="pl-name" type="text" name="fields[name]" autocomplete="given-name" placeholder="Optional">
           </div>
+          <div class="field field--hp" aria-hidden="true">
+            <label for="pl-web">Website</label>
+            <input id="pl-web" type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="field">
             <label for="pl-email">Email address</label>
             <input id="pl-email" type="email" name="fields[email]" autocomplete="email" required placeholder="you@example.com">
@@ -725,6 +730,11 @@ footer{
   form.addEventListener('submit', function(e){
     if(native) return;                      // fallback path: let the browser post
     e.preventDefault();
+    if(form.website && form.website.value){
+      form.classList.add('is-done');
+      done.classList.add('is-visible');
+      return;
+    }
     note.textContent = ''; note.classList.remove('err');
     btn.disabled = true; btn.textContent = 'One moment';
     var body = new FormData(form);
