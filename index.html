@@ -52,7 +52,7 @@ body{
   color:var(--cream);
   font-family:var(--body);
   font-weight:300;
-  font-size:clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  font-size:clamp(1.125rem, 1.085rem + 0.2vw, 1.1875rem);
   line-height:1.75;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -79,7 +79,7 @@ img,video{ display:block; max-width:100%; height:auto; }
 .label{
   font-family:var(--body);
   font-weight:500;
-  font-size:.6875rem;
+  font-size:.8125rem;
   letter-spacing:.3em;
   text-transform:uppercase;
   color:var(--gold);
@@ -165,7 +165,7 @@ section{ position:relative; }
 
 .hero__house{
   font-family:var(--body); font-weight:400;
-  font-size:.6875rem; letter-spacing:.42em; text-transform:uppercase;
+  font-size:.8125rem; letter-spacing:.42em; text-transform:uppercase;
   color:var(--muted); margin:0; padding-left:.42em;
 }
 
@@ -192,7 +192,7 @@ section{ position:relative; }
 }
 .hero__kind{
   font-family:var(--body); font-weight:400;
-  font-size:.6875rem; letter-spacing:.34em; text-transform:uppercase;
+  font-size:.8125rem; letter-spacing:.34em; text-transform:uppercase;
   color:var(--muted); margin:0; padding-left:.34em;
 }
 
@@ -200,7 +200,7 @@ section{ position:relative; }
   align-self:end;
   display:inline-flex; flex-direction:column; align-items:center; gap:.75rem;
   font-family:var(--body); font-weight:400;
-  font-size:.625rem; letter-spacing:.3em; text-transform:uppercase;
+  font-size:.75rem; letter-spacing:.3em; text-transform:uppercase;
   color:var(--muted); text-decoration:none;
 }
 .hero__cue:hover{ color:var(--gold-hi); }
@@ -229,19 +229,23 @@ section{ position:relative; }
 .scent__figure img{ width:100%; border:1px solid rgba(196,154,74,.22); }
 .scent__figure figcaption{
   margin-top:.9rem;
-  font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  font-size:.8125rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
 }
 
 .materials{
-  margin:0; padding:0; list-style:none;
-  display:flex; flex-wrap:wrap; gap:.5rem 1.5rem;
-  font-family:var(--display); font-style:italic;
-  font-size:1.0625rem; color:var(--gold-hi);
+  margin:1.75rem 0 0; padding:0; list-style:none;
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem;
 }
-.materials li + li{ position:relative; padding-left:1.5rem; }
-.materials li + li::before{
-  content:""; position:absolute; left:0; top:.72em;
-  width:.4rem; height:1px; background:var(--gold-lo);
+@media (min-width:34rem){
+  .materials{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+.materials li{
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; min-height:5.5rem; padding:1rem .75rem;
+  border:1px solid rgba(196,154,74,.28);
+  background:rgba(196,154,74,.05);
+  font-family:var(--display); font-style:italic;
+  font-size:1.1875rem; line-height:1.3; color:var(--gold-hi);
 }
 
 /* ── the 3 a.m. panel ────────────────────────────────────────────────────── */
@@ -264,7 +268,7 @@ section{ position:relative; }
 }
 .figure__num small{ font-size:.36em; letter-spacing:.06em; color:var(--gold-hi); }
 .figure__cap{
-  font-size:.9375rem; color:#C7BFB2; max-width:22rem;
+  font-size:1.0625rem; color:#C7BFB2; max-width:22rem;
 }
 
 /* ── made by hand ────────────────────────────────────────────────────────── */
@@ -281,14 +285,14 @@ section{ position:relative; }
 .film figcaption{
   padding:.7rem .9rem;
   border-top:1px solid rgba(196,154,74,.16);
-  font-size:.625rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+  font-size:.75rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
 }
 
 .marks{ margin:0; padding:0; display:grid; gap:1.5rem; }
 .marks div{ display:flex; flex-direction:column; gap:.3rem; }
 .marks dt{
   font-family:var(--body); font-weight:500;
-  font-size:.6875rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
+  font-size:.8125rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
 }
 .marks dd{ margin:0; color:#DBD4C8; max-width:30rem; }
 
@@ -313,11 +317,11 @@ section{ position:relative; }
 form{ display:flex; flex-direction:column; gap:1rem; width:100%; max-width:26rem; }
 .field{ display:flex; flex-direction:column; gap:.45rem; }
 .field label{
-  font-size:.625rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
+  font-size:.75rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
 }
 .field input{
   width:100%;
-  font-family:var(--body); font-weight:300; font-size:1rem; color:var(--cream);
+  font-family:var(--body); font-weight:300; font-size:1.125rem; color:var(--cream);
   background:rgba(0,0,0,.5);
   border:0; border-bottom:1px solid var(--gold-lo);
   padding:.65rem .1rem;
@@ -331,7 +335,7 @@ button{
   align-self:flex-start;
   margin-top:.5rem;
   font-family:var(--body); font-weight:500;
-  font-size:.6875rem; letter-spacing:.32em; text-transform:uppercase;
+  font-size:.8125rem; letter-spacing:.32em; text-transform:uppercase;
   color:var(--gold-hi);
   background:transparent;
   border:1px solid var(--gold-lo);
@@ -341,7 +345,7 @@ button{
 }
 button:hover{ background:var(--gold); border-color:var(--gold); color:var(--ink); }
 button[disabled]{ opacity:.55; cursor:default; }
-.form-note{ font-size:.8125rem; min-height:1.2em; margin:0; }
+.form-note{ font-size:.9375rem; min-height:1.2em; margin:0; }
 .form-note.err{ color:#D9A05B; }
 .pour__done{
   display:none; flex-direction:column; gap:.9rem; max-width:26rem;
@@ -352,7 +356,7 @@ form.is-done{ display:none; }
 form.is-done + .fineprint{ display:none; }
 .pour__done.is-visible{ display:flex; }
 
-.fineprint{ font-size:.8125rem; color:var(--muted); max-width:24rem; }
+.fineprint{ font-size:.9375rem; color:var(--muted); max-width:24rem; }
 
 /* ── first pour ──────────────────────────────────────────────────────────── */
 .pour-date{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center; }
@@ -372,9 +376,9 @@ form.is-done + .fineprint{ display:none; }
 .venue div{ display:grid; grid-template-columns:6.5rem 1fr; gap:1rem; align-items:baseline; }
 .venue dt{
   font-family:var(--body); font-weight:500;
-  font-size:.625rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold);
+  font-size:.75rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold);
 }
-.venue dd{ margin:0; color:#DBD4C8; font-size:.9375rem; line-height:1.6; }
+.venue dd{ margin:0; color:#DBD4C8; font-size:1.0625rem; line-height:1.6; }
 @media (max-width:32rem){
   .venue div{ grid-template-columns:1fr; gap:.3rem; }
 }
@@ -386,7 +390,7 @@ form.is-done + .fineprint{ display:none; }
 .founder__figure img{ width:100%; border:1px solid rgba(196,154,74,.22); }
 .signature{
   font-family:var(--display); font-style:italic;
-  font-size:1.0625rem; color:var(--gold-hi); margin-top:.4rem;
+  font-size:1.1875rem; color:var(--gold-hi); margin-top:.4rem;
 }
 
 /* ── contact ─────────────────────────────────────────────────────────────── */
@@ -423,11 +427,11 @@ footer{
 .foot__mark{ width:132px; opacity:.85; }
 .foot__links{ display:flex; flex-direction:column; gap:.6rem; }
 .foot__links a{
-  font-size:.6875rem; letter-spacing:.26em; text-transform:uppercase;
+  font-size:.8125rem; letter-spacing:.26em; text-transform:uppercase;
   color:var(--muted); text-decoration:none;
 }
 .foot__links a:hover{ color:var(--gold-hi); }
-.foot__legal{ font-size:.75rem; color:#6A6359; max-width:22rem; }
+.foot__legal{ font-size:.875rem; color:#6A6359; max-width:22rem; }
 
 /* ── scroll reveal ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference){
@@ -464,7 +468,7 @@ footer{
         <div class="scent">
           <div class="prose">
             <p class="lede">It opens the way a garden smells in the minute after the heat leaves it. Cool, green, still deciding.</p>
-            <p>Then the jasmine arrives, and it is not the soap-and-linen kind. It is the real kind: heavy, honeyed, a little indolic, the note that made perfumers say jasmine is the one flower that smells human.</p>
+            <p>Then the jasmine arrives, and it is not the soap-and-linen kind. It is the real kind: heavy, honeyed, heady, the note that made perfumers say jasmine is the one flower that smells human.</p>
             <p>It stays there a long while. Tuberose gives it weight. Orange blossom keeps it from going airless. Underneath, a warm wood holds the whole thing against the skin.</p>
             <p>By the fourth hour it has stopped behaving like a fragrance and started behaving like a temperature.</p>
 
@@ -478,7 +482,6 @@ footer{
 
           <figure class="scent__figure">
             <img src="assets/ritual-jasmine.webp" alt="Ritual eau de parfum, a black bottle with a gold cap, lying among jasmine and tuberose blossoms" width="1100" height="1100" loading="lazy">
-            <figcaption>Ritual &middot; 30 mL</figcaption>
           </figure>
         </div>
       </div>
@@ -528,7 +531,6 @@ footer{
             <video src="assets/ritual-film.mp4" poster="assets/ritual-film-poster.jpg"
                    autoplay muted loop playsinline preload="metadata"
                    aria-label="Ritual eau de parfum, worn by candlelight"></video>
-            <figcaption>Ritual &middot; Film</figcaption>
           </figure>
 
           <dl class="marks">
@@ -631,8 +633,8 @@ footer{
 
           <div class="prose">
             <p class="lede">I have taught for most of my working life. More recently, yoga.</p>
-            <p>I meditate in my garden most mornings. Sitting outdoors long enough that you stop looking at a flower and start smelling it turns out to be a good way to learn what one actually does over the course of an hour. Ritual began there.</p>
-            <p>I am also an aerialist, which is how I know Sarah, who owns Flying Buddha Studio. Batch 001 has a launch because she told me to bring it to her market this month instead of waiting until everything was perfect. She was right.</p>
+            <p>I meditate in my garden most mornings. That is where I learned the value of stillness — and yoga is what taught me how to turn that stillness into action. Ritual began there, somewhere between the two.</p>
+            <p>I am also an aerialist, which is how I know Sarah, who owns Flying Buddha Studio. Batch 001 exists because she told me to stop waiting for perfect and bring it to her market this month instead. She was right.</p>
             <p>I formulate, mix, rest, filter, bottle and number every batch myself. That sets a natural ceiling on how much there can be, and that is the point. I would rather run out than pour something I would not wear.</p>
             <p>Ritual is my first release. It took a long time to get the jasmine to sit exactly where I wanted it, and I am not in a hurry to add a second scent before this one is right.</p>
             <p class="signature">Cher &middot; Founder</p>
@@ -650,7 +652,7 @@ footer{
       <div class="contact__inner reveal">
         <p class="label">Contact</p>
         <p class="lede">Questions about a batch, an engraving, or stocking Ritual?</p>
-        <p class="contact__link"><a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
+        <p class="contact__link"><a href="mailto:help@vegabotanica.com">help@vegabotanica.com</a></p>
         <p class="fineprint">Or find us on <a href="https://instagram.com/the.house.of.vega">@the.house.of.vega</a>. Replies come from one person, so give it a day.</p>
       </div>
     </div>
