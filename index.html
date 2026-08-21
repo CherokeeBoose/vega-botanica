@@ -243,7 +243,7 @@ section{ position:relative; }
   margin:2.5rem 0 0; padding:0;
   font-family:"Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   font-style:normal; font-weight:400;
-  font-size:clamp(1.35rem, 6.5vw, 2.2rem);
+  font-size:clamp(1.25rem, 6vw, 2.05rem);
   line-height:1.9; color:var(--gold-hi);
   text-align:left;
 }
@@ -269,8 +269,8 @@ section{ position:relative; }
   /* ~70ms a character — an unhurried hand; longer rests at the full stops. */
   .diary__line:nth-child(1){ --pen:1.75s; --pen-delay:.4s; }
   .diary__line:nth-child(2){ --pen:1.6s;  --pen-delay:2.3s; }
-  .diary__line:nth-child(3){ --pen:2.1s;  --pen-delay:4.5s; }
-  .diary__line:nth-child(4){ --pen:2.25s; --pen-delay:7.2s; }
+  .diary__line:nth-child(3){ --pen:2.45s; --pen-delay:4.5s; }
+  .diary__line:nth-child(4){ --pen:2.25s; --pen-delay:7.55s; }
 }
 
 @keyframes write{ to{ clip-path:inset(-.2em -.25em -.5em -.12em); } }
@@ -508,7 +508,7 @@ footer{
             <p class="diary">
               <span class="diary__line"><span class="diary__ink">Sun-kissed white florals,</span></span>
               <span class="diary__line"><span class="diary__ink">married with warm wood.</span></span>
-              <span class="diary__line"><span class="diary__ink">Honeysuckle on a summer fence.</span></span>
+              <span class="diary__line"><span class="diary__ink">Like honeysuckle on a summer fence.</span></span>
               <span class="diary__line"><span class="diary__ink">Sweet, and not easily forgotten.</span></span>
             </p>
           </div>
