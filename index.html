@@ -243,8 +243,8 @@ section{ position:relative; }
   margin:2.5rem 0 0; padding:0;
   font-family:"Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   font-style:normal; font-weight:400;
-  font-size:clamp(1.15rem, 4.5vw, 1.9rem);
-  line-height:1.85; color:var(--gold-hi);
+  font-size:clamp(1.35rem, 6.5vw, 2.2rem);
+  line-height:1.9; color:var(--gold-hi);
   text-align:left;
 }
 .diary__line{ position:relative; display:block; white-space:nowrap; }
@@ -266,15 +266,11 @@ section{ position:relative; }
   .reveal.is-in .diary__line::after{
     animation:nib var(--pen) cubic-bezier(.4,0,.5,1) var(--pen-delay) forwards;
   }
-  /* ~45ms a character, so the pen keeps one pace throughout; the longer gaps
-     after lines 2 and 4 are the hand resting at a full stop. */
-  .diary__line:nth-child(1){ --pen:1.05s; --pen-delay:.30s; }
-  .diary__line:nth-child(2){ --pen:1.05s; --pen-delay:1.47s; }
-  .diary__line:nth-child(3){ --pen:1.26s; --pen-delay:2.99s; }
-  .diary__line:nth-child(4){ --pen:1.05s; --pen-delay:4.37s; }
-  .diary__line:nth-child(5){ --pen:1.62s; --pen-delay:5.89s; }
-  .diary__line:nth-child(6){ --pen:1.00s; --pen-delay:7.63s; }
-  .diary__line:nth-child(7){ --pen:1.44s; --pen-delay:8.75s; }
+  /* ~70ms a character — an unhurried hand; longer rests at the full stops. */
+  .diary__line:nth-child(1){ --pen:1.75s; --pen-delay:.4s; }
+  .diary__line:nth-child(2){ --pen:1.6s;  --pen-delay:2.3s; }
+  .diary__line:nth-child(3){ --pen:2.1s;  --pen-delay:4.5s; }
+  .diary__line:nth-child(4){ --pen:2.25s; --pen-delay:7.2s; }
 }
 
 @keyframes write{ to{ clip-path:inset(-.2em -.25em -.5em -.12em); } }
@@ -510,13 +506,10 @@ footer{
             <p>By the fourth hour it has stopped behaving like a fragrance and started behaving like a temperature.</p>
 
             <p class="diary">
-              <span class="diary__line"><span class="diary__ink">Sun-kissed white florals</span></span>
+              <span class="diary__line"><span class="diary__ink">Sun-kissed white florals,</span></span>
               <span class="diary__line"><span class="diary__ink">married with warm wood.</span></span>
-              <span class="diary__line"><span class="diary__ink">Like the honeysuckle growing</span></span>
-              <span class="diary__line"><span class="diary__ink">on the fence in summer.</span></span>
-              <span class="diary__line"><span class="diary__ink">I can no longer remember your taste,</span></span>
-              <span class="diary__line"><span class="diary__ink">but could never forget</span></span>
-              <span class="diary__line"><span class="diary__ink">how sweet you were on my tongue.</span></span>
+              <span class="diary__line"><span class="diary__ink">Honeysuckle on a summer fence.</span></span>
+              <span class="diary__line"><span class="diary__ink">Sweet, and not easily forgotten.</span></span>
             </p>
           </div>
 
