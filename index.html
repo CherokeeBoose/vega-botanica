@@ -233,54 +233,55 @@ section{ position:relative; }
   font-size:.8125rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
 }
 
-.materials{
-  margin:1.75rem 0 0; padding:0; list-style:none;
-  display:grid; grid-template-columns:minmax(0,1fr); gap:.75rem;
-}
-.materials li{
-  display:flex; align-items:center; justify-content:center;
-  text-align:center; min-height:0; padding:1.15rem .75rem;
-  border:1px solid rgba(196,154,74,.28);
-  background:rgba(196,154,74,.05);
-  font-family:var(--display); font-style:italic;
-  font-size:1.1875rem; line-height:1.3; color:var(--gold-hi);
-}
-
-/* the two notes are written on, rather than typeset */
-.hand{
-  position:relative; display:inline-block;
+/* ── the diary hand ──────────────────────────────────────────────────────────
+   A passage written on, not typeset. No frame, no plate — it sits on the page
+   the way ink sits on paper. Each line is its own stroke: a horizontal wipe
+   across wrapped text reads as a curtain, not a pen, so the breaks are set by
+   hand and every line is written in turn.
+   ------------------------------------------------------------------------ */
+.diary{
+  margin:2.5rem 0 0; padding:0;
   font-family:"Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
-  font-style:normal; font-size:clamp(1.3rem, 5.2vw, 2rem); line-height:1.45;
-  white-space:nowrap;
+  font-style:normal; font-weight:400;
+  font-size:clamp(1.15rem, 4.5vw, 1.9rem);
+  line-height:1.85; color:var(--gold-hi);
+  text-align:left;
 }
-.hand__ink{ display:inline-block; }
+.diary__line{ position:relative; display:block; white-space:nowrap; }
+.diary__ink{ display:inline-block; }
 
 @media (prefers-reduced-motion: no-preference){
-  /* ink starts fully clipped from the right; the keyframe sweeps it open.
-     insets run slightly negative so the swashes and descenders are not shaved. */
-  .hand__ink{ clip-path:inset(-.15em 100% -.45em -.1em); }
-  .reveal.is-in .hand__ink{
-    animation:write var(--pen,1.5s) cubic-bezier(.5,.05,.4,1) var(--pen-delay,.25s) forwards;
+  /* ink starts clipped away to the right; the keyframe sweeps it open.
+     insets run negative so swashes and descenders are never shaved. */
+  .diary__ink{ clip-path:inset(-.2em 100% -.5em -.12em); }
+  .reveal.is-in .diary__ink{
+    animation:write var(--pen) cubic-bezier(.4,0,.5,1) var(--pen-delay) forwards;
   }
-  /* the nib: a hairline that rides the leading edge, then lifts off the page */
-  .hand::after{
-    content:""; position:absolute; top:.28em; bottom:.34em; left:0;
+  /* the nib: a hairline riding the leading edge, lifting off at the line end */
+  .diary__line::after{
+    content:""; position:absolute; top:.3em; bottom:.42em; left:0;
     width:1px; background:var(--gold-hi); opacity:0;
     box-shadow:0 0 6px rgba(230,206,154,.7);
   }
-  .reveal.is-in .hand::after{
-    animation:nib var(--pen,1.5s) cubic-bezier(.5,.05,.4,1) var(--pen-delay,.25s) forwards;
+  .reveal.is-in .diary__line::after{
+    animation:nib var(--pen) cubic-bezier(.4,0,.5,1) var(--pen-delay) forwards;
   }
-  /* pen speed tracks how much there is to write, so both read as one hand */
-  .materials li:nth-child(1) .hand{ --pen:1.5s; --pen-delay:.25s; }
-  .materials li:nth-child(2) .hand{ --pen:.75s; --pen-delay:1.55s; }
+  /* ~45ms a character, so the pen keeps one pace throughout; the longer gaps
+     after lines 2 and 4 are the hand resting at a full stop. */
+  .diary__line:nth-child(1){ --pen:1.05s; --pen-delay:.30s; }
+  .diary__line:nth-child(2){ --pen:1.05s; --pen-delay:1.47s; }
+  .diary__line:nth-child(3){ --pen:1.26s; --pen-delay:2.99s; }
+  .diary__line:nth-child(4){ --pen:1.05s; --pen-delay:4.37s; }
+  .diary__line:nth-child(5){ --pen:1.62s; --pen-delay:5.89s; }
+  .diary__line:nth-child(6){ --pen:1.00s; --pen-delay:7.63s; }
+  .diary__line:nth-child(7){ --pen:1.44s; --pen-delay:8.75s; }
 }
 
-@keyframes write{ to{ clip-path:inset(-.15em -.2em -.45em -.1em); } }
+@keyframes write{ to{ clip-path:inset(-.2em -.25em -.5em -.12em); } }
 @keyframes nib{
   0%{ left:0; opacity:0; }
-  10%{ opacity:.95; }
-  88%{ opacity:.95; }
+  8%{ opacity:.95; }
+  90%{ opacity:.95; }
   100%{ left:100%; opacity:0; }
 }
 
@@ -508,10 +509,15 @@ footer{
             <p>It stays there a long while. Tuberose gives it weight. Orange blossom keeps it from going airless. Underneath, a warm wood holds the whole thing against the skin.</p>
             <p>By the fourth hour it has stopped behaving like a fragrance and started behaving like a temperature.</p>
 
-            <ul class="materials" aria-label="Notes">
-              <li><span class="hand"><span class="hand__ink">Sun-kissed white florals</span></span></li>
-              <li><span class="hand"><span class="hand__ink">Warm wood</span></span></li>
-            </ul>
+            <p class="diary">
+              <span class="diary__line"><span class="diary__ink">Sun-kissed white florals</span></span>
+              <span class="diary__line"><span class="diary__ink">married with warm wood.</span></span>
+              <span class="diary__line"><span class="diary__ink">Like the honeysuckle growing</span></span>
+              <span class="diary__line"><span class="diary__ink">on the fence in summer.</span></span>
+              <span class="diary__line"><span class="diary__ink">I can no longer remember your taste,</span></span>
+              <span class="diary__line"><span class="diary__ink">but could never forget</span></span>
+              <span class="diary__line"><span class="diary__ink">how sweet you were on my tongue.</span></span>
+            </p>
           </div>
 
           <figure class="scent__figure">
