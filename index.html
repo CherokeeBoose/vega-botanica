@@ -15,7 +15,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
 
 <style>
 /* ── Vega Botanica · Ritual ────────────────────────────────────────────────
@@ -237,16 +237,51 @@ section{ position:relative; }
   margin:1.75rem 0 0; padding:0; list-style:none;
   display:grid; grid-template-columns:minmax(0,1fr); gap:.75rem;
 }
-@media (min-width:34rem){
-  .materials{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-}
 .materials li{
   display:flex; align-items:center; justify-content:center;
-  text-align:center; min-height:5.5rem; padding:1rem .75rem;
+  text-align:center; min-height:0; padding:1.15rem .75rem;
   border:1px solid rgba(196,154,74,.28);
   background:rgba(196,154,74,.05);
   font-family:var(--display); font-style:italic;
   font-size:1.1875rem; line-height:1.3; color:var(--gold-hi);
+}
+
+/* the two notes are written on, rather than typeset */
+.hand{
+  position:relative; display:inline-block;
+  font-family:"Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  font-style:normal; font-size:clamp(1.3rem, 5.2vw, 2rem); line-height:1.45;
+  white-space:nowrap;
+}
+.hand__ink{ display:inline-block; }
+
+@media (prefers-reduced-motion: no-preference){
+  /* ink starts fully clipped from the right; the keyframe sweeps it open.
+     insets run slightly negative so the swashes and descenders are not shaved. */
+  .hand__ink{ clip-path:inset(-.15em 100% -.45em -.1em); }
+  .reveal.is-in .hand__ink{
+    animation:write var(--pen,1.5s) cubic-bezier(.5,.05,.4,1) var(--pen-delay,.25s) forwards;
+  }
+  /* the nib: a hairline that rides the leading edge, then lifts off the page */
+  .hand::after{
+    content:""; position:absolute; top:.28em; bottom:.34em; left:0;
+    width:1px; background:var(--gold-hi); opacity:0;
+    box-shadow:0 0 6px rgba(230,206,154,.7);
+  }
+  .reveal.is-in .hand::after{
+    animation:nib var(--pen,1.5s) cubic-bezier(.5,.05,.4,1) var(--pen-delay,.25s) forwards;
+  }
+  /* pen speed tracks how much there is to write, so both read as one hand */
+  .materials li:nth-child(1) .hand{ --pen:1.5s; --pen-delay:.25s; }
+  .materials li:nth-child(2) .hand{ --pen:.75s; --pen-delay:1.55s; }
+}
+
+@keyframes write{ to{ clip-path:inset(-.15em -.2em -.45em -.1em); } }
+@keyframes nib{
+  0%{ left:0; opacity:0; }
+  10%{ opacity:.95; }
+  88%{ opacity:.95; }
+  100%{ left:100%; opacity:0; }
 }
 
 /* ── the 3 a.m. panel ────────────────────────────────────────────────────── */
@@ -474,8 +509,8 @@ footer{
             <p>By the fourth hour it has stopped behaving like a fragrance and started behaving like a temperature.</p>
 
             <ul class="materials" aria-label="Notes">
-              <li>Sun-kissed white florals</li>
-              <li>Warm wood</li>
+              <li><span class="hand"><span class="hand__ink">Sun-kissed white florals</span></span></li>
+              <li><span class="hand"><span class="hand__ink">Warm wood</span></span></li>
             </ul>
           </div>
 
