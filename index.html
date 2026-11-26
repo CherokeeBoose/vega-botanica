@@ -435,6 +435,9 @@ form.is-done + .fineprint{ display:none; }
 .pour-date--bloom figure{ order:-1; max-width:16rem; width:100%; margin-inline:auto; }
 @media (min-width:52rem){ .pour-date--bloom figure{ order:0; max-width:none; margin:0; } }
 .bloom-fig svg{ width:100%; height:auto; display:block; }
+.venue-where{ display:flex; flex-direction:column; gap:.55rem; align-items:flex-start; }
+.venue-logo-link{ border:0; }
+.pour-date .venue-logo{ width:10.5rem; height:auto; display:block; opacity:.92; border:0; }
 
 .pw-line{ fill:none; stroke:var(--gold-lo); stroke-width:3; stroke-linecap:round; }
 .pw-pebble{ fill:none; stroke:var(--gold-lo); stroke-width:2.5; }
@@ -645,13 +648,12 @@ footer{
 
         <div class="pour-date pour-date--bloom">
           <div class="prose bloom-copy">
-            <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December &middot; 5:30&ndash;9 PM</p>
+            <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December 5:30&ndash;9 PM</p>
             <dl class="venue">
-              <div><dt>Where</dt><dd><a href="https://www.onstelmo.com">ON St. Elmo</a><br>4915 St Elmo Avenue<br>Bethesda, Maryland</dd></div>
+              <div><dt>Where</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.onstelmo.com"><img class="venue-logo" src="assets/onstelmo-logo-white.png" alt="ON St. Elmo" width="600" height="185" loading="lazy"></a><span>4915 St Elmo Avenue<br>Bethesda, Maryland</span></dd></div>
               <div><dt>The evening</dt><dd>Free entry. Seasonal cocktails, live music, and a room of local makers, hosted by Higher Vibes Market &mdash; the market that launched Batch 001.</dd></div>
               <div><dt>On our table</dt><dd>Ritual eau de parfum &middot; Ritual bath salts &middot; paperwhites in bloom</dd></div>
             </dl>
-            <p>If you cannot be there, <a href="#pour-list">join the Pour List</a> and you will hear about the next pour before it happens.</p>
             <p class="fineprint">More from the venue at <a href="https://www.instagram.com/onstelmo/">@onstelmo</a>.</p>
           </div>
 
