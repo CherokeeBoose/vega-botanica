@@ -429,6 +429,49 @@ form.is-done + .fineprint{ display:none; }
   font-size:1.1875rem; color:var(--gold-hi); margin-top:.4rem;
 }
 
+
+/* ── the next pour: paperwhite bloom ───────────────────────────────────── */
+.pour-date--bloom{ align-items:center; }
+.pour-date--bloom figure{ order:-1; max-width:16rem; width:100%; margin-inline:auto; }
+@media (min-width:52rem){ .pour-date--bloom figure{ order:0; max-width:none; margin:0; } }
+.bloom-fig svg{ width:100%; height:auto; display:block; }
+
+.pw-line{ fill:none; stroke:var(--gold-lo); stroke-width:3; stroke-linecap:round; }
+.pw-pebble{ fill:none; stroke:var(--gold-lo); stroke-width:2.5; }
+.pw-leaf{ fill:none; stroke:#7A5E2C; stroke-width:6; stroke-linecap:round; }
+.pw-stem{ fill:none; stroke:#8A6B33; stroke-width:5; stroke-linecap:round; }
+.pw-stem--thin{ stroke-width:3.5; }
+.pw-petal, .pw-side-petal{ fill:var(--cream); stroke:rgba(196,154,74,.45); stroke-width:1.5; }
+.pw-corona{ fill:var(--gold-hi); stroke:var(--gold-lo); stroke-width:2; }
+.pw-corona-in{ fill:var(--gold); stroke:none; }
+.pw-bud{ fill:#E3DACB; stroke:rgba(196,154,74,.5); stroke-width:1.5; }
+
+@media (prefers-reduced-motion: no-preference){
+  .pour-event .draw{ stroke-dasharray:1; stroke-dashoffset:1; }
+  .pour-event .pw-petal{ opacity:0; transform:scale(.06); transform-box:fill-box; transform-origin:50% 100%; }
+  .pour-event .pw-pop{ opacity:0; transform:scale(.2); transform-box:fill-box; transform-origin:50% 50%; }
+  .pour-event .pw-fade{ opacity:0; }
+  .pour-event .bloom-copy > *{ opacity:0; transform:translateY(10px); }
+
+  .pour-event.is-bloom .draw{ animation:pw-draw 1.5s cubic-bezier(.4,0,.3,1) .15s forwards; }
+  .pour-event.is-bloom .pw-petal{ animation:pw-petal .9s cubic-bezier(.34,1.3,.42,1) var(--pd,1.2s) forwards; }
+  .pour-event.is-bloom .pw-p1{ --pd:1.15s; } .pour-event.is-bloom .pw-p2{ --pd:1.27s; }
+  .pour-event.is-bloom .pw-p3{ --pd:1.39s; } .pour-event.is-bloom .pw-p4{ --pd:1.51s; }
+  .pour-event.is-bloom .pw-p5{ --pd:1.63s; } .pour-event.is-bloom .pw-p6{ --pd:1.75s; }
+  .pour-event.is-bloom .pw-pop{ animation:pw-pop .8s cubic-bezier(.34,1.3,.42,1) var(--pd,2s) forwards; }
+  .pour-event.is-bloom .pw-fade{ animation:pw-fade .7s ease var(--pd,2.1s) forwards; }
+  .pour-event.is-bloom .bloom-copy > *{ animation:pw-rise .8s cubic-bezier(.2,.7,.3,1) forwards; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(1){ animation-delay:1.3s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(2){ animation-delay:1.55s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(3){ animation-delay:1.8s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(4){ animation-delay:2.05s; }
+}
+@keyframes pw-draw{ to{ stroke-dashoffset:0; } }
+@keyframes pw-petal{ 0%{ opacity:0; transform:scale(.06); } 55%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
+@keyframes pw-pop{ to{ opacity:1; transform:scale(1); } }
+@keyframes pw-fade{ to{ opacity:1; } }
+@keyframes pw-rise{ to{ opacity:1; transform:none; } }
+
 /* ── contact ─────────────────────────────────────────────────────────────── */
 .contact{
   position:relative; isolation:isolate;
@@ -630,26 +673,65 @@ footer{
     </div>
   </section>
 
-  <!-- ── first pour ── -->
-  <section class="block">
+  <!-- ── next pour ── -->
+  <section class="block pour-event" id="market">
     <div class="wrap">
       <div class="block__inner reveal">
-        <h2 class="label">The first pour</h2>
+        <h2 class="label">The next pour</h2>
 
-        <div class="pour-date">
-          <div class="prose">
-            <p class="datestamp">Batch 001<br>Sunday, 30 August &middot; 11–3</p>
+        <div class="pour-date pour-date--bloom">
+          <div class="prose bloom-copy">
+            <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December &middot; 5:30&ndash;9 PM</p>
             <dl class="venue">
-              <div><dt>Where</dt><dd>Higher Vibes Market at Flying Buddha Studio<br>814 West Diamond Ave, Suite 100<br>Gaithersburg, MD 20878</dd></div>
-              <div><dt>Admission</dt><dd>Free. Part wellness festival, part local market.</dd></div>
-              <div><dt>Sizes</dt><dd>3 mL &middot; 10 mL &middot; 30 mL &middot; 100 mL engraved to order</dd></div>
+              <div><dt>Where</dt><dd><a href="https://www.onstelmo.com">ON St. Elmo</a><br>4915 St Elmo Avenue<br>Bethesda, Maryland</dd></div>
+              <div><dt>The evening</dt><dd>Free entry. Seasonal cocktails, live music, and a room of local makers, hosted by Higher Vibes Market &mdash; the market that launched Batch 001.</dd></div>
+              <div><dt>On our table</dt><dd>Ritual eau de parfum &middot; Ritual bath salts &middot; paperwhites in bloom</dd></div>
             </dl>
-            <p>Batch 001 is being sold in person only. Nothing ships until Batch 002.</p>
-            <p>If you cannot be there, <a href="#pour-list">join the Pour List</a> and you will hear about the next one before it is poured.</p>
+            <p>If you cannot be there, <a href="#pour-list">join the Pour List</a> and you will hear about the next pour before it happens.</p>
+            <p class="fineprint">More from the venue at <a href="https://www.instagram.com/onstelmo/">@onstelmo</a>.</p>
           </div>
 
-          <figure>
-            <img src="assets/ritual-carry.webp" alt="A bottle of Ritual carried in an evening bag" width="900" height="1350" loading="lazy">
+          <figure class="bloom-fig">
+            <svg viewBox="0 0 400 600" role="img" aria-label="A paperwhite narcissus in bloom, drawn in gold line work" xmlns="http://www.w3.org/2000/svg">
+      <path class="draw pw-line" pathLength="1" d="M112 542 Q200 522 288 542" />
+      <path class="draw pw-line" pathLength="1" d="M112 542 C128 586 272 586 288 542" />
+      <circle class="pw-fade pw-pebble" style="--pd:.9s" cx="162" cy="546" r="7"/>
+      <circle class="pw-fade pw-pebble" style="--pd:1s" cx="201" cy="550" r="6"/>
+      <circle class="pw-fade pw-pebble" style="--pd:1.1s" cx="238" cy="546" r="7"/>
+      <path class="draw pw-leaf" pathLength="1" d="M190 540 C150 460 140 380 168 300"/>
+      <path class="draw pw-leaf" pathLength="1" d="M216 540 C250 470 258 390 240 320"/>
+      <path class="draw pw-stem" pathLength="1" d="M205 540 C204 470 196 300 199 210 C200 175 200 150 200 134"/>
+      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M201 330 C185 280 162 240 150 205"/>
+      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M203 330 C235 292 276 238 289 200"/>
+      <g transform="rotate(0 200 120)"><path class="pw-petal pw-p1" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(60 200 120)"><path class="pw-petal pw-p2" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(120 200 120)"><path class="pw-petal pw-p3" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(180 200 120)"><path class="pw-petal pw-p4" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(240 200 120)"><path class="pw-petal pw-p5" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(300 200 120)"><path class="pw-petal pw-p6" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <circle class="pw-fade pw-corona" style="--pd:2.1s" cx="200" cy="120" r="13"/>
+      <circle class="pw-fade pw-corona-in" style="--pd:2.25s" cx="200" cy="120" r="6"/>
+      <g transform="translate(148 190) rotate(-24)"><g class="pw-pop" style="--pd:2s">
+        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <circle class="pw-corona" cx="0" cy="0" r="8"/>
+        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
+      </g></g>
+      <g transform="translate(291 168) rotate(18) scale(.85)"><g class="pw-pop" style="--pd:2.2s">
+        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <circle class="pw-corona" cx="0" cy="0" r="8"/>
+        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
+      </g></g>
+    </svg>
           </figure>
         </div>
       </div>
@@ -737,6 +819,20 @@ footer{
     });
   }, { threshold:0.6 });
   io.observe(d);
+})();
+
+(function(){
+  var sct=document.querySelector('.pour-event');
+  if(!sct) return;
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    sct.classList.add('is-bloom'); return;
+  }
+  var io2=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ sct.classList.add('is-bloom'); io2.unobserve(sct); }
+    });
+  }, { threshold:.35 });
+  io2.observe(sct);
 })();
 
 (function(){
