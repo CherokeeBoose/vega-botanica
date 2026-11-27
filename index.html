@@ -435,7 +435,12 @@ form.is-done + .fineprint{ display:none; }
 .pour-date--bloom{ align-items:center; }
 .pour-date--bloom figure{ order:-1; max-width:16rem; width:100%; margin-inline:auto; }
 @media (min-width:52rem){ .pour-date--bloom figure{ order:0; max-width:none; margin:0; } }
-.bloom-fig svg{ width:100%; height:auto; display:block; }
+.bloom-fig img{ width:100%; height:auto; display:block; }
+@media (min-width:52rem){ .pour-date--bloom{ grid-template-columns:1fr minmax(0,19rem); } }
+.pour-bloom{ position:absolute; right:clamp(1rem,6vw,5.5rem); bottom:-4px; width:min(15rem,24vw);
+             margin:0; z-index:0; display:none; pointer-events:none; }
+@media (min-width:62rem){ .pour-bloom{ display:block; } }
+.pour-bloom svg{ width:100%; height:auto; display:block; }
 .venue-where{ display:flex; flex-direction:column; gap:.55rem; align-items:flex-start; }
 .venue-logo-link{ border:0; }
 .pour-date .venue-logo{ width:7rem; height:auto; display:block; opacity:.92; border:0; }
@@ -453,19 +458,19 @@ form.is-done + .fineprint{ display:none; }
 .pw-bud{ fill:#E3DACB; stroke:rgba(196,154,74,.5); stroke-width:1.5; }
 
 @media (prefers-reduced-motion: no-preference){
-  .pour-event .draw{ stroke-dasharray:1; stroke-dashoffset:1; }
-  .pour-event .pw-petal{ opacity:0; transform:scale(.06); transform-box:fill-box; transform-origin:50% 100%; }
-  .pour-event .pw-pop{ opacity:0; transform:scale(.2); transform-box:fill-box; transform-origin:50% 50%; }
-  .pour-event .pw-fade{ opacity:0; }
+  .bloom-watch .draw{ stroke-dasharray:1; stroke-dashoffset:1; }
+  .bloom-watch .pw-petal{ opacity:0; transform:scale(.06); transform-box:fill-box; transform-origin:50% 100%; }
+  .bloom-watch .pw-pop{ opacity:0; transform:scale(.2); transform-box:fill-box; transform-origin:50% 50%; }
+  .bloom-watch .pw-fade{ opacity:0; }
   .pour-event .bloom-copy > *{ opacity:0; transform:translateY(10px); }
 
-  .pour-event.is-bloom .draw{ animation:pw-draw 1.5s cubic-bezier(.4,0,.3,1) .15s forwards; }
-  .pour-event.is-bloom .pw-petal{ animation:pw-petal .9s cubic-bezier(.34,1.3,.42,1) var(--pd,1.2s) forwards; }
-  .pour-event.is-bloom .pw-p1{ --pd:1.15s; } .pour-event.is-bloom .pw-p2{ --pd:1.27s; }
-  .pour-event.is-bloom .pw-p3{ --pd:1.39s; } .pour-event.is-bloom .pw-p4{ --pd:1.51s; }
-  .pour-event.is-bloom .pw-p5{ --pd:1.63s; } .pour-event.is-bloom .pw-p6{ --pd:1.75s; }
-  .pour-event.is-bloom .pw-pop{ animation:pw-pop .8s cubic-bezier(.34,1.3,.42,1) var(--pd,2s) forwards; }
-  .pour-event.is-bloom .pw-fade{ animation:pw-fade .7s ease var(--pd,2.1s) forwards; }
+  .bloom-watch.is-bloom .draw{ animation:pw-draw 1.5s cubic-bezier(.4,0,.3,1) .15s forwards; }
+  .bloom-watch.is-bloom .pw-petal{ animation:pw-petal .9s cubic-bezier(.34,1.3,.42,1) var(--pd,1.2s) forwards; }
+  .bloom-watch.is-bloom .pw-p1{ --pd:1.15s; } .bloom-watch.is-bloom .pw-p2{ --pd:1.27s; }
+  .bloom-watch.is-bloom .pw-p3{ --pd:1.39s; } .bloom-watch.is-bloom .pw-p4{ --pd:1.51s; }
+  .bloom-watch.is-bloom .pw-p5{ --pd:1.63s; } .bloom-watch.is-bloom .pw-p6{ --pd:1.75s; }
+  .bloom-watch.is-bloom .pw-pop{ animation:pw-pop .8s cubic-bezier(.34,1.3,.42,1) var(--pd,2s) forwards; }
+  .bloom-watch.is-bloom .pw-fade{ animation:pw-fade .7s ease var(--pd,2.1s) forwards; }
   .pour-event.is-bloom .bloom-copy > *{ animation:pw-rise .8s cubic-bezier(.2,.7,.3,1) forwards; }
   .pour-event.is-bloom .bloom-copy > :nth-child(1){ animation-delay:1.3s; }
   .pour-event.is-bloom .bloom-copy > :nth-child(2){ animation-delay:1.55s; }
@@ -551,7 +556,7 @@ footer{
   <!-- ═══ SIP & SHOP EVENT — START (temporary: delete this whole block after Dec 3, 2026,
        along with the matching CSS and JS blocks marked SIP & SHOP EVENT further down/up,
        and repoint the hero cue link from #market back to #scent / "The scent") ═══ -->
-  <section class="block pour-event" id="market">
+  <section class="block pour-event bloom-watch" id="market">
     <div class="wrap">
       <div class="block__inner reveal">
         <div class="pour-date pour-date--bloom">
@@ -569,46 +574,7 @@ footer{
           </div>
 
           <figure class="bloom-fig">
-            <svg viewBox="0 0 400 600" role="img" aria-label="A paperwhite narcissus in bloom, drawn in gold line work" xmlns="http://www.w3.org/2000/svg">
-      <path class="draw pw-line" pathLength="1" d="M112 542 Q200 522 288 542" />
-      <path class="draw pw-line" pathLength="1" d="M112 542 C128 586 272 586 288 542" />
-      <circle class="pw-fade pw-pebble" style="--pd:.9s" cx="162" cy="546" r="7"/>
-      <circle class="pw-fade pw-pebble" style="--pd:1s" cx="201" cy="550" r="6"/>
-      <circle class="pw-fade pw-pebble" style="--pd:1.1s" cx="238" cy="546" r="7"/>
-      <path class="draw pw-leaf" pathLength="1" d="M190 540 C150 460 140 380 168 300"/>
-      <path class="draw pw-leaf" pathLength="1" d="M216 540 C250 470 258 390 240 320"/>
-      <path class="draw pw-stem" pathLength="1" d="M205 540 C204 470 196 300 199 210 C200 175 200 150 200 134"/>
-      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M201 330 C185 280 162 240 150 205"/>
-      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M203 330 C235 292 276 238 289 200"/>
-      <g transform="rotate(0 200 120)"><path class="pw-petal pw-p1" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <g transform="rotate(60 200 120)"><path class="pw-petal pw-p2" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <g transform="rotate(120 200 120)"><path class="pw-petal pw-p3" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <g transform="rotate(180 200 120)"><path class="pw-petal pw-p4" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <g transform="rotate(240 200 120)"><path class="pw-petal pw-p5" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <g transform="rotate(300 200 120)"><path class="pw-petal pw-p6" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
-      <circle class="pw-fade pw-corona" style="--pd:2.1s" cx="200" cy="120" r="13"/>
-      <circle class="pw-fade pw-corona-in" style="--pd:2.25s" cx="200" cy="120" r="6"/>
-      <g transform="translate(148 190) rotate(-24)"><g class="pw-pop" style="--pd:2s">
-        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <circle class="pw-corona" cx="0" cy="0" r="8"/>
-        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
-      </g></g>
-      <g transform="translate(291 168) rotate(18) scale(.85)"><g class="pw-pop" style="--pd:2.2s">
-        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
-        <circle class="pw-corona" cx="0" cy="0" r="8"/>
-        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
-      </g></g>
-    </svg>
+            <img src="assets/sip-and-shop-poster.jpg" alt="Holiday Sip &amp; Shop poster: an aerialist on silks, paperwhites in bloom, Thursday 3 December at ON St. Elmo" width="1080" height="1350" loading="lazy">
           </figure>
         </div>
       </div>
@@ -715,9 +681,53 @@ footer{
   </section>
 
   <!-- ── the pour list ── -->
-  <section class="pour" id="pour-list">
+  <section class="pour bloom-watch" id="pour-list">
     <div class="pour__bg" aria-hidden="true"></div>
     <div class="pour__veil" aria-hidden="true"></div>
+    <!-- ═══ SIP & SHOP EVENT — paperwhite bloom (temporary: delete with the event block) ═══ -->
+    <figure class="pour-bloom" aria-hidden="true">
+      <svg viewBox="0 0 400 600" role="img" aria-label="A paperwhite narcissus in bloom, drawn in gold line work" xmlns="http://www.w3.org/2000/svg">
+      <path class="draw pw-line" pathLength="1" d="M112 542 Q200 522 288 542" />
+      <path class="draw pw-line" pathLength="1" d="M112 542 C128 586 272 586 288 542" />
+      <circle class="pw-fade pw-pebble" style="--pd:.9s" cx="162" cy="546" r="7"/>
+      <circle class="pw-fade pw-pebble" style="--pd:1s" cx="201" cy="550" r="6"/>
+      <circle class="pw-fade pw-pebble" style="--pd:1.1s" cx="238" cy="546" r="7"/>
+      <path class="draw pw-leaf" pathLength="1" d="M190 540 C150 460 140 380 168 300"/>
+      <path class="draw pw-leaf" pathLength="1" d="M216 540 C250 470 258 390 240 320"/>
+      <path class="draw pw-stem" pathLength="1" d="M205 540 C204 470 196 300 199 210 C200 175 200 150 200 134"/>
+      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M201 330 C185 280 162 240 150 205"/>
+      <path class="draw pw-stem pw-stem--thin" pathLength="1" d="M203 330 C235 292 276 238 289 200"/>
+      <g transform="rotate(0 200 120)"><path class="pw-petal pw-p1" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(60 200 120)"><path class="pw-petal pw-p2" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(120 200 120)"><path class="pw-petal pw-p3" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(180 200 120)"><path class="pw-petal pw-p4" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(240 200 120)"><path class="pw-petal pw-p5" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <g transform="rotate(300 200 120)"><path class="pw-petal pw-p6" d="M200 120 C186 100 184 76 200 58 C216 76 214 100 200 120 Z"/></g>
+      <circle class="pw-fade pw-corona" style="--pd:2.1s" cx="200" cy="120" r="13"/>
+      <circle class="pw-fade pw-corona-in" style="--pd:2.25s" cx="200" cy="120" r="6"/>
+      <g transform="translate(148 190) rotate(-24)"><g class="pw-pop" style="--pd:2s">
+        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <circle class="pw-corona" cx="0" cy="0" r="8"/>
+        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
+      </g></g>
+      <g transform="translate(291 168) rotate(18) scale(.85)"><g class="pw-pop" style="--pd:2.2s">
+        <g transform="rotate(0)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(60)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(120)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(180)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(240)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <g transform="rotate(300)"><path class="pw-side-petal" d="M0 0 C-9 -13 -10 -29 0 -40 C10 -29 9 -13 0 0 Z"/></g>
+        <circle class="pw-corona" cx="0" cy="0" r="8"/>
+        <circle class="pw-corona-in" cx="0" cy="0" r="4"/>
+      </g></g>
+    </svg>
+    </figure>
+    <!-- ═══ END paperwhite bloom ═══ -->
     <div class="wrap">
       <div class="pour__inner reveal">
         <h2 class="label">The Pour List</h2>
@@ -835,17 +845,17 @@ footer{
 
 /* ═══ SIP & SHOP EVENT JS — START (temporary: delete with the HTML block) ═══ */
 (function(){
-  var sct=document.querySelector('.pour-event');
-  if(!sct) return;
+  var scts=document.querySelectorAll('.bloom-watch');
+  if(!scts.length) return;
   if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    sct.classList.add('is-bloom'); return;
+    scts.forEach(function(s){ s.classList.add('is-bloom'); }); return;
   }
   var io2=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){ sct.classList.add('is-bloom'); io2.unobserve(sct); }
+      if(e.isIntersecting){ e.target.classList.add('is-bloom'); io2.unobserve(e.target); }
     });
   }, { threshold:.35 });
-  io2.observe(sct);
+  scts.forEach(function(s){ io2.observe(s); });
 })();
 /* ═══ SIP & SHOP EVENT JS — END ═══ */
 
