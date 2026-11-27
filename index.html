@@ -440,6 +440,7 @@ form.is-done + .fineprint{ display:none; }
 .venue-logo-link{ border:0; }
 .pour-date .venue-logo{ width:7rem; height:auto; display:block; opacity:.92; border:0; }
 .pour-date .fb-logo{ width:10.5rem; }
+.bloom-copy .label{ color:var(--gold); margin-top:.75rem; }
 
 .pw-line{ fill:none; stroke:var(--gold-lo); stroke-width:3; stroke-linecap:round; }
 .pw-pebble{ fill:none; stroke:var(--gold-lo); stroke-width:2.5; }
@@ -470,6 +471,8 @@ form.is-done + .fineprint{ display:none; }
   .pour-event.is-bloom .bloom-copy > :nth-child(2){ animation-delay:1.55s; }
   .pour-event.is-bloom .bloom-copy > :nth-child(3){ animation-delay:1.8s; }
   .pour-event.is-bloom .bloom-copy > :nth-child(4){ animation-delay:2.05s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(5){ animation-delay:2.25s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(6){ animation-delay:2.45s; }
 }
 @keyframes pw-draw{ to{ stroke-dashoffset:0; } }
 @keyframes pw-petal{ 0%{ opacity:0; transform:scale(.06); } 55%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
@@ -554,10 +557,12 @@ footer{
         <div class="pour-date pour-date--bloom">
           <div class="prose bloom-copy">
             <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December 5:30&ndash;9 PM</p>
+            <p>Flying Buddha&rsquo;s Higher Vibes Market, in partnership with ON St. Elmo &mdash; an evening of local makers, seasonal cocktails, and live music. Free entry.</p>
             <p>Indulge in an olfactory experience &mdash; come smell Ritual yourself, as well as beautifully scented paperwhites in various stages of bloom.</p>
+            <p class="label">The details</p>
             <dl class="venue">
               <div><dt>Where</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.onstelmo.com"><img class="venue-logo" src="assets/onstelmo-logo-white.png" alt="ON St. Elmo" width="1000" height="1000" loading="lazy"></a><span>4915 St Elmo Avenue<br>Bethesda, Maryland</span></dd></div>
-              <div><dt>The evening</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.flyingbuddhastudio.com"><img class="venue-logo fb-logo" src="assets/flyingbuddha-logo.png" alt="Flying Buddha Studio" width="500" height="115" loading="lazy"></a><span>Free entry. Seasonal cocktails, live music, and a room of local makers &mdash; a collaboration of Higher Vibes Market, from Flying Buddha Studio, with ON St. Elmo. Higher Vibes is the market that launched Batch 001.</span></dd></div>
+              <div><dt>The market</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.flyingbuddhastudio.com"><img class="venue-logo fb-logo" src="assets/flyingbuddha-logo.png" alt="Flying Buddha Studio" width="500" height="115" loading="lazy"></a><span>Higher Vibes Market is Flying Buddha Studio&rsquo;s own.</span></dd></div>
               <div><dt>On our table</dt><dd>Ritual eau de parfum &middot; Ritual Bath Soaks &middot; paperwhite flowers in various stages of bloom</dd></div>
             </dl>
             <p class="fineprint">More from the venue at <a href="https://www.instagram.com/onstelmo/">@onstelmo</a>.</p>
