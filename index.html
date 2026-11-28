@@ -15,6 +15,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/sip-shop-bg.jpg">
+<link rel="preload" as="image" href="assets/aerialist-ghost.webp">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
 
 <style>
@@ -442,7 +444,7 @@ form.is-done + .fineprint{ display:none; }
 
 /* ═══ SIP & SHOP EVENT CSS — START (temporary: delete with the HTML block) ═══ */
 /* ── the next pour: paperwhite bloom ───────────────────────────────────── */
-.pour-event{ position:relative; isolation:isolate; border-block:1px solid rgba(196,154,74,.16); }
+.pour-event{ position:relative; isolation:isolate; border-block:1px solid rgba(196,154,74,.16); padding-top:clamp(2.5rem,6vw,5.5rem); }
 .pour-event__bg{ position:absolute; inset:0; z-index:0;
   background:#0B0A08 url("assets/sip-shop-bg.jpg") 85% 62% / cover no-repeat; }
 @media (max-width:52rem){
@@ -505,13 +507,13 @@ form.is-done + .fineprint{ display:none; }
   .bloom-watch.is-bloom .pw-pop{ animation:pw-pop .8s cubic-bezier(.34,1.3,.42,1) var(--pd,2s) forwards; }
   .bloom-watch.is-bloom .pw-fade{ animation:pw-fade .7s ease var(--pd,2.1s) forwards; }
   .pour-event.is-bloom .bloom-copy > *{ animation:pw-rise .8s cubic-bezier(.2,.7,.3,1) forwards; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(1){ animation-delay:1.3s; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(2){ animation-delay:1.55s; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(3){ animation-delay:1.8s; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(4){ animation-delay:2.05s; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(5){ animation-delay:2.25s; }
-  .pour-event.is-bloom .bloom-copy > :nth-child(6){ animation-delay:2.45s; }
-.pour-event.is-bloom .bloom-copy > :nth-child(7){ animation-delay:2.65s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(1){ animation-delay:.05s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(2){ animation-delay:.14s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(3){ animation-delay:.23s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(4){ animation-delay:.32s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(5){ animation-delay:.41s; }
+  .pour-event.is-bloom .bloom-copy > :nth-child(6){ animation-delay:.5s; }
+.pour-event.is-bloom .bloom-copy > :nth-child(7){ animation-delay:.6s; }
 }
 @keyframes pw-draw{ to{ stroke-dashoffset:0; } }
 @keyframes pw-petal{ 0%{ opacity:0; transform:scale(.06); } 55%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
@@ -600,11 +602,11 @@ footer{
   <section class="block pour-event bloom-watch" id="market">
     <div class="pour-event__bg" aria-hidden="true"></div>
     <div class="pour-event__veil" aria-hidden="true"></div>
-    <img class="pour-event__aerial" src="assets/aerialist-ghost.png" alt="" aria-hidden="true" loading="lazy">
+    <img class="pour-event__aerial" src="assets/aerialist-ghost.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="block__inner reveal">
         <div class="prose bloom-copy">
-            <p class="datestamp"><strong class="evt-title">Holiday Sip &amp; Shop</strong><span class="evt-date">Thursday, 3 December</span><span class="evt-time">5:30&ndash;9&nbsp;PM</span></p>
+            <p class="datestamp"><strong class="evt-title">Holiday Sip &amp; Shop</strong><span class="evt-date">This Thursday, 3 December</span><span class="evt-time">5:30&ndash;9&nbsp;PM</span></p>
             <p>Visit Flying Buddha&rsquo;s Higher Vibes Market, in partnership with ON St. Elmo. Shop local artisans: skincare, jewelry, clothing, art, accessories, and gifts for the holidays, with seasonal cocktails and live music. Vega Botanica will be one of the many vendors. Free entry.</p>
             <p>Indulge in an olfactory experience &mdash; come smell Ritual yourself, as well as beautifully scented paperwhites in various stages of bloom.</p>
             <p>And debuting at our table &mdash; something new. Our first unisex eau de parfum, Instinct.</p>
@@ -918,7 +920,7 @@ footer{
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('is-bloom'); io2.unobserve(e.target); }
     });
-  }, { threshold:.35 });
+  }, { threshold:.12 });
   scts.forEach(function(s){ io2.observe(s); });
 })();
 /* ═══ SIP & SHOP EVENT JS — END ═══ */
