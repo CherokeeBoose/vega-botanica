@@ -191,6 +191,11 @@ section{ position:relative; }
   font-size:clamp(1.0625rem, .95rem + .55vw, 1.375rem);
   color:var(--gold-hi); margin:0;
 }
+.hero__sig{
+  font-family:var(--body); font-weight:400;
+  font-size:.8125rem; letter-spacing:.34em; text-transform:uppercase;
+  color:var(--gold); margin:0; padding-left:.34em;
+}
 .hero__kind{
   font-family:var(--body); font-weight:400;
   font-size:.8125rem; letter-spacing:.34em; text-transform:uppercase;
@@ -209,10 +214,11 @@ section{ position:relative; }
 
 /* hero load sequence */
 @media (prefers-reduced-motion: no-preference){
-  .hero__mark,.hero__house,.hero__rule,.hero__sub,.hero__kind,.hero__cue{ opacity:0; animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
+  .hero__mark,.hero__house,.hero__sig,.hero__rule,.hero__sub,.hero__kind,.hero__cue{ opacity:0; animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
   .hero__mark { animation-delay:.15s; }
   .hero__house{ animation-delay:.35s; }
   .hero__name { opacity:0; animation:settle 1.5s cubic-bezier(.19,1,.22,1) .5s forwards; }
+  .hero__sig  { animation-delay:1.15s; }
   .hero__rule { animation-delay:1.25s; }
   .hero__sub  { animation-delay:1.45s; }
   .hero__kind { animation-delay:1.6s; }
@@ -435,12 +441,18 @@ form.is-done + .fineprint{ display:none; }
 .pour-event{ position:relative; isolation:isolate; border-block:1px solid rgba(196,154,74,.16); }
 .pour-event__bg{ position:absolute; inset:0; z-index:0;
   background:#0B0A08 url("assets/sip-shop-bg.jpg") 85% 62% / cover no-repeat; }
+@media (max-width:52rem){
+  .pour-event__bg{ background-size:100% auto; background-position:center bottom; }
+}
 .pour-event__veil{ position:absolute; inset:0; z-index:1; background:
   linear-gradient(90deg, rgba(11,10,8,.97) 0%, rgba(11,10,8,.9) 48%, rgba(11,10,8,.55) 100%),
   linear-gradient(180deg, rgba(11,10,8,.65) 0%, transparent 30%, transparent 70%, rgba(11,10,8,.7) 100%); }
 .pour-event__aerial{ position:absolute; top:0; right:clamp(.5rem,4vw,4rem);
   width:clamp(8rem,18vw,15rem); z-index:2; opacity:.9; pointer-events:none; }
-@media (max-width:52rem){ .pour-event__aerial{ width:7.5rem; opacity:.5; } }
+@media (max-width:52rem){
+  .pour-event__aerial{ width:8.5rem; opacity:.65; }
+  .pour-event .datestamp{ padding-right:8rem; margin-top:-1.25rem; }
+}
 .pour-event .wrap{ position:relative; z-index:3; }
 .pour-bloom{ position:absolute; right:clamp(1rem,6vw,5.5rem); bottom:-4px; width:min(15rem,24vw);
              margin:0; z-index:0; display:none; pointer-events:none; }
@@ -561,6 +573,7 @@ footer{
   <div class="hero__center">
     <p class="hero__house">Vega Botanica</p>
     <h1 class="hero__name">RITUAL</h1>
+    <p class="hero__sig">Our Signature Scent</p>
     <hr class="hero__rule">
     <p class="hero__sub">A white floral, worn after dark.</p>
     <p class="hero__kind">Eau de Parfum &middot; Hand-filled</p>
@@ -587,12 +600,12 @@ footer{
             <div class="instinct">
               <p class="label">A new pour</p>
               <p class="instinct-name">Instinct</p>
-              <p class="instinct-kind">Unisex eau de parfum &middot; debuting at the Sip &amp; Shop</p>
+              <p class="instinct-kind">Unisex eau de parfum<br>Debuting at the Sip &amp; Shop</p>
               <p>Instinct is a slow burn &mdash; a brief, bright heat, like a match in a dark room, and then the woods close in.</p>
               <dl class="venue notes">
-                <div><dt>Top</dt><dd>Bergamot &middot; cardamom</dd></div>
-                <div><dt>Heart</dt><dd>Dry cedar &middot; smooth sandalwood &middot; a shadow of patchouli that reads more like skin than earth</dd></div>
-                <div><dt>Base</dt><dd>Warm amber &middot; vetiver &mdash; the part that stays on a collar for days</dd></div>
+                <div><dt>Top</dt><dd>Citrus and spice</dd></div>
+                <div><dt>Heart</dt><dd>Warm woods</dd></div>
+                <div><dt>Base</dt><dd>The part that stays on a collar for days</dd></div>
               </dl>
               <p class="instinct-tag">It isn&rsquo;t loud. It&rsquo;s the scent of someone who doesn&rsquo;t need to be.</p>
             </div>
@@ -613,7 +626,7 @@ footer{
   <section class="block" id="scent">
     <div class="wrap">
       <div class="block__inner reveal">
-        <h2 class="label">The scent</h2>
+        <h2 class="label">Ritual &middot; The scent</h2>
 
         <div class="scent">
           <div class="prose">
