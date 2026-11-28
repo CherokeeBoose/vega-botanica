@@ -451,6 +451,17 @@ form.is-done + .fineprint{ display:none; }
 .pour-event .venue-logo{ width:7rem; height:auto; display:block; opacity:.92; border:0; }
 .pour-event .fb-logo{ width:10.5rem; }
 .bloom-copy .label{ color:var(--gold); margin-top:.75rem; }
+.evt-title{ display:block; font-family:var(--display); font-weight:500;
+  font-size:clamp(2.3rem, 1.4rem + 3.6vw, 3.7rem); line-height:1.04; color:var(--cream); }
+.evt-date{ display:block; margin-top:.45rem; font-family:var(--display); font-weight:400;
+  font-size:clamp(1.25rem, 1rem + 1vw, 1.65rem); color:var(--gold-hi); }
+.evt-time{ display:block; margin-top:.15rem; font-family:var(--body); font-weight:400;
+  font-size:.9375rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
+.instinct-name{ font-family:var(--display); font-weight:400;
+  font-size:clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem); line-height:1.05; color:var(--cream); margin:.4rem 0 0; }
+.instinct-kind{ font-size:.8125rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--muted); margin:.5rem 0 0 !important; }
+.instinct-tag{ font-family:var(--display); font-style:italic; color:var(--gold-hi); font-size:1.1875rem; }
 
 .pw-line{ fill:none; stroke:var(--gold-lo); stroke-width:3; stroke-linecap:round; }
 .pw-pebble{ fill:none; stroke:var(--gold-lo); stroke-width:2.5; }
@@ -483,6 +494,7 @@ form.is-done + .fineprint{ display:none; }
   .pour-event.is-bloom .bloom-copy > :nth-child(4){ animation-delay:2.05s; }
   .pour-event.is-bloom .bloom-copy > :nth-child(5){ animation-delay:2.25s; }
   .pour-event.is-bloom .bloom-copy > :nth-child(6){ animation-delay:2.45s; }
+.pour-event.is-bloom .bloom-copy > :nth-child(7){ animation-delay:2.65s; }
 }
 @keyframes pw-draw{ to{ stroke-dashoffset:0; } }
 @keyframes pw-petal{ 0%{ opacity:0; transform:scale(.06); } 55%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
@@ -568,14 +580,21 @@ footer{
     <div class="wrap">
       <div class="block__inner reveal">
         <div class="prose bloom-copy">
-            <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December 5:30&ndash;9 PM</p>
+            <p class="datestamp"><strong class="evt-title">Holiday Sip &amp; Shop</strong><span class="evt-date">Thursday, 3 December</span><span class="evt-time">5:30&ndash;9&nbsp;PM</span></p>
             <p>Visit Flying Buddha&rsquo;s Higher Vibes Market, in partnership with ON St. Elmo. Shop local artisans: skincare, jewelry, clothing, art, accessories, and gifts for the holidays, with seasonal cocktails and live music. Vega Botanica will be one of the many vendors. Free entry.</p>
             <p>Indulge in an olfactory experience &mdash; come smell Ritual yourself, as well as beautifully scented paperwhites in various stages of bloom.</p>
+            <div class="instinct">
+              <p class="label">A new pour</p>
+              <p class="instinct-name">Instinct</p>
+              <p class="instinct-kind">Unisex eau de parfum &middot; debuting at the Sip &amp; Shop</p>
+              <p>Instinct is a slow burn. Bergamot and cardamom strike first &mdash; a brief, bright heat, like a match in a dark room. Then the woods close in: dry cedar, smooth sandalwood, a shadow of patchouli that reads more like skin than earth. At the base, warm amber and vetiver &mdash; the part that stays on a collar for days.</p>
+              <p class="instinct-tag">It isn&rsquo;t loud. It&rsquo;s the scent of someone who doesn&rsquo;t need to be.</p>
+            </div>
             <p class="label">The details</p>
             <dl class="venue">
               <div><dt>Where</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.onstelmo.com"><img class="venue-logo" src="assets/onstelmo-logo-white.png" alt="ON St. Elmo" width="1000" height="1000" loading="lazy"></a><span>4915 St Elmo Avenue<br>Bethesda, Maryland</span></dd></div>
               <div><dt>The market</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.flyingbuddhastudio.com"><img class="venue-logo fb-logo" src="assets/flyingbuddha-logo.png" alt="Flying Buddha Studio" width="500" height="115" loading="lazy"></a><span>Higher Vibes Market is Flying Buddha Studio&rsquo;s own &mdash; Batch 001 launched there.</span></dd></div>
-              <div><dt>On our table</dt><dd>Ritual eau de parfum &middot; Ritual Bath Soaks &middot; Paperwhite flowers in various stages of bloom</dd></div>
+              <div><dt>On our table</dt><dd>Ritual eau de parfum &middot; Instinct eau de parfum &middot; Ritual Bath Soaks &middot; Paperwhite flowers in various stages of bloom</dd></div>
             </dl>
             <p class="fineprint">More from the venue at <a href="https://www.instagram.com/onstelmo/">@onstelmo</a>.</p>
           </div>
