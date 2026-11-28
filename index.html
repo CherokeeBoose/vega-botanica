@@ -15,6 +15,58 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="canonical" href="https://vegabotanica.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Event",
+      "name": "Holiday Sip & Shop",
+      "startDate": "2026-12-03T17:30-05:00",
+      "endDate": "2026-12-03T21:00-05:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "isAccessibleForFree": true,
+      "location": {
+        "@type": "Place",
+        "name": "ON St. Elmo",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4915 St Elmo Avenue",
+          "addressLocality": "Bethesda",
+          "addressRegion": "MD",
+          "postalCode": "20814",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": { "@type": "Organization", "name": "Higher Vibes Market" },
+      "description": "Flying Buddha's Higher Vibes Market, in partnership with ON St. Elmo. Shop local artisans with seasonal cocktails, live music, and aerial performances. Vega Botanica debuts Instinct, its first unisex eau de parfum."
+    },
+    {
+      "@type": "Product",
+      "name": "Ritual Eau de Parfum",
+      "brand": { "@type": "Brand", "name": "Vega Botanica" },
+      "description": "A white floral, worn after dark. Hand-filled in small batches in Maryland.",
+      "image": "https://vegabotanica.com/assets/ritual-engraved.jpg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "8",
+        "highPrice": "125",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStoreOnly"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Instinct Eau de Parfum",
+      "brand": { "@type": "Brand", "name": "Vega Botanica" },
+      "description": "A unisex eau de parfum. Citrus and spice, warm woods, and an amber warmth that lingers for days.",
+      "image": "https://vegabotanica.com/assets/instinct-bottle.jpg"
+    }
+  ]
+}
+</script>
 <link rel="preload" as="image" href="assets/sip-shop-bg.jpg">
 <link rel="preload" as="image" href="assets/aerialist-ghost.webp">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
@@ -563,6 +615,11 @@ footer{
 .foot__links a:hover{ color:var(--gold-hi); }
 .foot__legal{ font-size:.875rem; color:var(--muted); max-width:22rem; }
 
+.skip-link{ position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--ink-2); color:var(--gold-hi); padding:.75rem 1.25rem;
+  font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; text-decoration:none; }
+.skip-link:focus{ left:0; }
+
 /* collections */
 .prose .label{ color:var(--gold); }
 .collection-cta{ font-size:.9375rem; letter-spacing:.04em; }
@@ -582,6 +639,7 @@ footer{
 
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="hero">
 
@@ -594,7 +652,7 @@ footer{
   <a class="hero__cue" href="#market"><span></span>Come experience Vega Botanica in person</a>
 </header>
 
-<main class="body-flow">
+<main class="body-flow" id="main">
 
   <!-- ═══ SIP & SHOP EVENT — START (temporary: delete this whole block after Dec 3, 2026,
        along with the matching CSS and JS blocks marked SIP & SHOP EVENT further down/up,
@@ -635,7 +693,7 @@ footer{
         <div class="scent collection">
           <div class="prose">
             <p class="label">The new scent</p>
-            <p class="instinct-name">Instinct</p>
+            <h3 class="instinct-name">Instinct</h3>
             <p class="instinct-kind">Unisex eau de parfum<br>Debuting at the Sip &amp; Shop</p>
             <p class="instinct-tag">Sometimes the body senses what the mind has yet to discover.</p>
             <p>Instinct is a slow burn &mdash; a brief, bright heat, like a match in a dark room, and then the woods close in.</p>
@@ -656,7 +714,7 @@ footer{
         <div class="scent collection">
           <div class="prose">
             <p class="label">Our signature scent</p>
-            <p class="instinct-name">Ritual</p>
+            <h3 class="instinct-name">Ritual</h3>
             <p class="instinct-kind">Eau de parfum &middot; Hand-filled &middot; $8&ndash;$125</p>
             <p class="instinct-tag">A white floral, worn after dark.</p>
             <p class="lede">It opens the way a garden smells in the minute after the heat leaves it. Cool, green, still deciding.</p>
@@ -674,7 +732,7 @@ footer{
           </div>
 
           <figure class="scent__figure">
-            <img src="assets/ritual-engraved.jpg" alt="Ritual eau de parfum before a gold botanical engraving of jasmine, after Curtis, 1787" width="1100" height="1100" loading="lazy">
+            <img src="assets/ritual-engraved.jpg" alt="Ritual eau de parfum on a vintage botanical illustration." width="1100" height="1100" loading="lazy">
           </figure>
         </div>
       </div>
@@ -977,5 +1035,9 @@ footer{
 })();
 </script>
 
+<!-- Analytics (GoatCounter, privacy-friendly, no cookies).
+     To activate: create a free account at goatcounter.com with the code "vegabotanica",
+     then remove the comment markers around the script tag below. -->
+<!-- <script data-goatcounter="https://vegabotanica.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 </body>
 </html>
