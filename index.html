@@ -163,6 +163,8 @@ section{ position:relative; }
   opacity:.92;
 }
 .hero__center{ display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+.hero__logo{ margin:0; }
+.hero__logo img{ width:clamp(15rem, 36vw, 22rem); height:auto; display:block; }
 
 .hero__house{
   font-family:var(--body); font-weight:400;
@@ -215,9 +217,10 @@ section{ position:relative; }
 
 /* hero load sequence */
 @media (prefers-reduced-motion: no-preference){
-  .hero__mark,.hero__house,.hero__sig,.hero__rule,.hero__sub,.hero__kind,.hero__cue{ opacity:0; animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
+  .hero__mark,.hero__house,.hero__logo,.hero__sig,.hero__rule,.hero__sub,.hero__kind,.hero__cue{ opacity:0; animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
   .hero__mark { animation-delay:.15s; }
   .hero__house{ animation-delay:.35s; }
+  .hero__logo { animation-delay:.2s; }
   .hero__name { opacity:0; animation:settle 1.5s cubic-bezier(.19,1,.22,1) .5s forwards; }
   .hero__sig  { animation-delay:1.15s; }
   .hero__rule { animation-delay:1.25s; }
@@ -576,10 +579,9 @@ footer{
 <body>
 
 <header class="hero">
-  <img class="hero__mark" src="assets/mark-gold.png" alt="Vega Botanica" width="813" height="718">
 
   <div class="hero__center">
-    <h1 class="hero__house">Vega Botanica</h1>
+    <h1 class="hero__logo"><img src="assets/logo-gold.png" alt="Vega Botanica" width="900" height="1083"></h1>
     <hr class="hero__rule">
     <p class="hero__sub">A perfume house crafting distinctive scents for discerning individuals &mdash; in small batches, out of Maryland.</p>
   </div>
