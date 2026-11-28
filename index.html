@@ -432,19 +432,24 @@ form.is-done + .fineprint{ display:none; }
 
 /* ═══ SIP & SHOP EVENT CSS — START (temporary: delete with the HTML block) ═══ */
 /* ── the next pour: paperwhite bloom ───────────────────────────────────── */
-.pour-date--bloom{ align-items:center; }
-.pour-date--bloom figure{ order:-1; max-width:16rem; width:100%; margin-inline:auto; }
-@media (min-width:52rem){ .pour-date--bloom figure{ order:0; max-width:none; margin:0; } }
-.bloom-fig img{ width:100%; height:auto; display:block; }
-@media (min-width:52rem){ .pour-date--bloom{ grid-template-columns:1fr minmax(0,19rem); } }
+.pour-event{ position:relative; isolation:isolate; border-block:1px solid rgba(196,154,74,.16); }
+.pour-event__bg{ position:absolute; inset:0; z-index:0;
+  background:#0B0A08 url("assets/sip-shop-bg.jpg") 85% 62% / cover no-repeat; }
+.pour-event__veil{ position:absolute; inset:0; z-index:1; background:
+  linear-gradient(90deg, rgba(11,10,8,.97) 0%, rgba(11,10,8,.9) 48%, rgba(11,10,8,.55) 100%),
+  linear-gradient(180deg, rgba(11,10,8,.65) 0%, transparent 30%, transparent 70%, rgba(11,10,8,.7) 100%); }
+.pour-event__aerial{ position:absolute; top:0; right:clamp(.5rem,4vw,4rem);
+  width:clamp(8rem,18vw,15rem); z-index:2; opacity:.9; pointer-events:none; }
+@media (max-width:52rem){ .pour-event__aerial{ width:7.5rem; opacity:.5; } }
+.pour-event .wrap{ position:relative; z-index:3; }
 .pour-bloom{ position:absolute; right:clamp(1rem,6vw,5.5rem); bottom:-4px; width:min(15rem,24vw);
              margin:0; z-index:0; display:none; pointer-events:none; }
 @media (min-width:62rem){ .pour-bloom{ display:block; } }
 .pour-bloom svg{ width:100%; height:auto; display:block; }
 .venue-where{ display:flex; flex-direction:column; gap:.55rem; align-items:flex-start; }
 .venue-logo-link{ border:0; }
-.pour-date .venue-logo{ width:7rem; height:auto; display:block; opacity:.92; border:0; }
-.pour-date .fb-logo{ width:10.5rem; }
+.pour-event .venue-logo{ width:7rem; height:auto; display:block; opacity:.92; border:0; }
+.pour-event .fb-logo{ width:10.5rem; }
 .bloom-copy .label{ color:var(--gold); margin-top:.75rem; }
 
 .pw-line{ fill:none; stroke:var(--gold-lo); stroke-width:3; stroke-linecap:round; }
@@ -557,10 +562,12 @@ footer{
        along with the matching CSS and JS blocks marked SIP & SHOP EVENT further down/up,
        and repoint the hero cue link from #market back to #scent / "The scent") ═══ -->
   <section class="block pour-event bloom-watch" id="market">
+    <div class="pour-event__bg" aria-hidden="true"></div>
+    <div class="pour-event__veil" aria-hidden="true"></div>
+    <img class="pour-event__aerial" src="assets/aerialist-ghost.png" alt="" aria-hidden="true" loading="lazy">
     <div class="wrap">
       <div class="block__inner reveal">
-        <div class="pour-date pour-date--bloom">
-          <div class="prose bloom-copy">
+        <div class="prose bloom-copy">
             <p class="datestamp">Holiday Sip &amp; Shop<br>Thursday, 3 December 5:30&ndash;9 PM</p>
             <p>Visit Flying Buddha&rsquo;s Higher Vibes Market, in partnership with ON St. Elmo. Shop local artisans: skincare, jewelry, clothing, art, accessories, and gifts for the holidays, with seasonal cocktails and live music. Vega Botanica will be one of the many vendors. Free entry.</p>
             <p>Indulge in an olfactory experience &mdash; come smell Ritual yourself, as well as beautifully scented paperwhites in various stages of bloom.</p>
@@ -572,11 +579,6 @@ footer{
             </dl>
             <p class="fineprint">More from the venue at <a href="https://www.instagram.com/onstelmo/">@onstelmo</a>.</p>
           </div>
-
-          <figure class="bloom-fig">
-            <img src="assets/sip-and-shop-poster.jpg" alt="Holiday Sip &amp; Shop poster: an aerialist on silks, paperwhites in bloom, Thursday 3 December at ON St. Elmo" width="1080" height="1350" loading="lazy">
-          </figure>
-        </div>
       </div>
     </div>
   </section>
