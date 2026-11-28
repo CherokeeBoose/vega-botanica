@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Ritual by Vega Botanica</title>
+<title>Vega Botanica &middot; Handmade Botanicals in Small Batches</title>
 <meta name="description" content="Ritual, a jasmine-forward white floral eau de parfum. Hand-filled in small batches by Vega Botanica.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Ritual — Vega Botanica">
@@ -191,6 +191,7 @@ section{ position:relative; }
   font-size:clamp(1.0625rem, .95rem + .55vw, 1.375rem);
   color:var(--gold-hi); margin:0;
 }
+.hero__name--brand{ font-size:clamp(2.4rem, 1rem + 6.4vw, 5.6rem); }
 .hero__sig{
   font-family:var(--body); font-weight:400;
   font-size:.8125rem; letter-spacing:.34em; text-transform:uppercase;
@@ -448,7 +449,7 @@ form.is-done + .fineprint{ display:none; }
   linear-gradient(90deg, rgba(11,10,8,.97) 0%, rgba(11,10,8,.9) 48%, rgba(11,10,8,.55) 100%),
   linear-gradient(180deg, rgba(11,10,8,.65) 0%, transparent 30%, transparent 70%, rgba(11,10,8,.7) 100%); }
 .pour-event__aerial{ position:absolute; top:0; right:clamp(.5rem,4vw,4rem);
-  width:clamp(8rem,18vw,15rem); z-index:2; opacity:.9; pointer-events:none; }
+  width:clamp(8rem,20vw,19rem); z-index:2; opacity:.9; pointer-events:none; }
 @media (max-width:52rem){
   .pour-event__aerial{ width:8.5rem; opacity:.65; }
   .pour-event .datestamp{ padding-right:8rem; margin-top:-1.25rem; }
@@ -557,6 +558,13 @@ footer{
 .foot__links a:hover{ color:var(--gold-hi); }
 .foot__legal{ font-size:.875rem; color:var(--muted); max-width:22rem; }
 
+/* collections */
+.prose .label{ color:var(--gold); }
+.scent.collection + .scent.collection{
+  margin-top:clamp(2rem,5vw,3.5rem); padding-top:clamp(2.5rem,6vw,4.5rem);
+  border-top:1px solid rgba(196,154,74,.16);
+}
+
 /* ── scroll reveal ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference){
   .reveal{ opacity:0; transform:translateY(14px); transition:opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1); }
@@ -571,12 +579,9 @@ footer{
   <img class="hero__mark" src="assets/mark-gold.png" alt="Vega Botanica" width="813" height="718">
 
   <div class="hero__center">
-    <p class="hero__house">Vega Botanica</p>
-    <h1 class="hero__name">RITUAL</h1>
-    <p class="hero__sig">Our Signature Scent</p>
+    <h1 class="hero__name hero__name--brand">VEGA BOTANICA</h1>
     <hr class="hero__rule">
-    <p class="hero__sub">A white floral, worn after dark.</p>
-    <p class="hero__kind">Eau de Parfum &middot; Hand-filled</p>
+    <p class="hero__sub">Handmade botanicals in small batches, out of Maryland.</p>
   </div>
 
   <a class="hero__cue" href="#market"><span></span>Come experience Vega Botanica in person</a>
@@ -597,18 +602,7 @@ footer{
             <p class="datestamp"><strong class="evt-title">Holiday Sip &amp; Shop</strong><span class="evt-date">Thursday, 3 December</span><span class="evt-time">5:30&ndash;9&nbsp;PM</span></p>
             <p>Visit Flying Buddha&rsquo;s Higher Vibes Market, in partnership with ON St. Elmo. Shop local artisans: skincare, jewelry, clothing, art, accessories, and gifts for the holidays, with seasonal cocktails and live music. Vega Botanica will be one of the many vendors. Free entry.</p>
             <p>Indulge in an olfactory experience &mdash; come smell Ritual yourself, as well as beautifully scented paperwhites in various stages of bloom.</p>
-            <div class="instinct">
-              <p class="label">A new pour</p>
-              <p class="instinct-name">Instinct</p>
-              <p class="instinct-kind">Unisex eau de parfum<br>Debuting at the Sip &amp; Shop</p>
-              <p>Instinct is a slow burn &mdash; a brief, bright heat, like a match in a dark room, and then the woods close in.</p>
-              <dl class="venue notes">
-                <div><dt>Top</dt><dd>Citrus and spice</dd></div>
-                <div><dt>Heart</dt><dd>Warm woods</dd></div>
-                <div><dt>Base</dt><dd>The part that stays on a collar for days</dd></div>
-              </dl>
-              <p class="instinct-tag">It isn&rsquo;t loud. It&rsquo;s the scent of someone who doesn&rsquo;t need to be.</p>
-            </div>
+            <p>And debuting at our table &mdash; something new. Our first unisex eau de parfum, Instinct.</p>
             <p class="label">The details</p>
             <dl class="venue">
               <div><dt>Where</dt><dd class="venue-where"><a class="venue-logo-link" href="https://www.onstelmo.com"><img class="venue-logo" src="assets/onstelmo-logo-white.png" alt="ON St. Elmo" width="1000" height="1000" loading="lazy"></a><span>4915 St Elmo Avenue<br>Bethesda, Maryland</span></dd></div>
@@ -626,10 +620,33 @@ footer{
   <section class="block" id="scent">
     <div class="wrap">
       <div class="block__inner reveal">
-        <h2 class="label">Ritual &middot; The scent</h2>
+        <h2 class="label">Collections</h2>
 
-        <div class="scent">
+        <div class="scent collection">
           <div class="prose">
+            <p class="label">The new scent</p>
+            <p class="instinct-name">Instinct</p>
+            <p class="instinct-kind">Unisex eau de parfum<br>Debuting at the Sip &amp; Shop</p>
+            <p>Instinct is a slow burn &mdash; a brief, bright heat, like a match in a dark room, and then the woods close in.</p>
+            <dl class="venue notes">
+              <div><dt>Top</dt><dd>Citrus and spice</dd></div>
+              <div><dt>Heart</dt><dd>Warm woods</dd></div>
+              <div><dt>Base</dt><dd>The part that stays on a collar for days</dd></div>
+            </dl>
+            <p class="instinct-tag">It isn&rsquo;t loud. It&rsquo;s the scent of someone who doesn&rsquo;t need to be.</p>
+          </div>
+
+          <figure class="scent__figure">
+            <img src="assets/instinct-bergamot.jpg" alt="Citrus ripening on a dark branch, a white blossom beside it" width="1000" height="1500" loading="lazy">
+          </figure>
+        </div>
+
+        <div class="scent collection">
+          <div class="prose">
+            <p class="label">Our signature scent</p>
+            <p class="instinct-name">Ritual</p>
+            <p class="instinct-kind">Eau de parfum &middot; Hand-filled</p>
+            <p class="instinct-tag">A white floral, worn after dark.</p>
             <p class="lede">It opens the way a garden smells in the minute after the heat leaves it. Cool, green, still deciding.</p>
             <p>Then the jasmine arrives, and it is not the soap-and-linen kind. It is the real kind: heavy, honeyed, heady, the note that made perfumers say jasmine is the one flower that smells human.</p>
             <p>It stays there a long while. The florals beneath it give it weight and keep it from going airless. Underneath, a warm wood holds the whole thing against the skin.</p>
@@ -845,6 +862,7 @@ footer{
   <div class="wrap foot">
     <img class="foot__mark" src="assets/logo-cream.png" alt="Vega Botanica" width="900" height="1082">
     <nav class="foot__links" aria-label="Elsewhere">
+      <a href="#scent">Collections</a>
       <a href="#pour-list">The Pour List</a>
       <a href="#founder">The Founder</a>
       <a href="https://instagram.com/the.house.of.vega">@the.house.of.vega</a>
